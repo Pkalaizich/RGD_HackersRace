@@ -1,0 +1,272 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2779105364877224199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949010865031900049}
+  - component: {fileID: 2767333054777369754}
+  m_Layer: 0
+  m_Name: Player1Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &949010865031900049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779105364877224199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2767333054777369754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779105364877224199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e695f59becbe8468189de9a3a47f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCombos:
+  - ComboType: Hack
+    AvailableCombos:
+    - ComboName: Light Hack
+      ComboLength: 4
+      ComboIndex: 0
+      ButtonsCombo: []
+      firstButton: 1
+      OnComboCompleted:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2767333054777369754}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: HackPerformed
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      parentTransform: {fileID: 0}
+    - ComboName: Medium Hack
+      ComboLength: 7
+      ComboIndex: 1
+      ButtonsCombo: []
+      firstButton: 2
+      OnComboCompleted:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2767333054777369754}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: HackPerformed
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      parentTransform: {fileID: 0}
+    - ComboName: Heavy Hack
+      ComboLength: 10
+      ComboIndex: 2
+      ButtonsCombo: []
+      firstButton: 0
+      OnComboCompleted:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2767333054777369754}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: HackPerformed
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 2
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      parentTransform: {fileID: 0}
+  - ComboType: Attack
+    AvailableCombos:
+    - ComboName: Open Windows
+      ComboLength: 3
+      ComboIndex: 0
+      ButtonsCombo: []
+      firstButton: 0
+      OnComboCompleted:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2767333054777369754}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: AttackPlayer
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      parentTransform: {fileID: 0}
+    - ComboName: Interrupt Hack
+      ComboLength: 5
+      ComboIndex: 1
+      ButtonsCombo: []
+      firstButton: 1
+      OnComboCompleted:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2767333054777369754}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: AttackPlayer
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      parentTransform: {fileID: 0}
+    - ComboName: Decrease Oponent Hack
+      ComboLength: 8
+      ComboIndex: 2
+      ButtonsCombo: []
+      firstButton: 2
+      OnComboCompleted:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2767333054777369754}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: AttackPlayer
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 2
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      parentTransform: {fileID: 0}
+  - ComboType: Windows
+    AvailableCombos:
+    - ComboName: CloseWindow1
+      ComboLength: 2
+      ComboIndex: 0
+      ButtonsCombo: []
+      firstButton: 10
+      OnComboCompleted:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2767333054777369754}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: CloseWindow
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      parentTransform: {fileID: 0}
+    - ComboName: CloseWindow2
+      ComboLength: 2
+      ComboIndex: 0
+      ButtonsCombo: []
+      firstButton: 10
+      OnComboCompleted:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2767333054777369754}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: CloseWindow
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      parentTransform: {fileID: 0}
+    - ComboName: CloseWindow3
+      ComboLength: 2
+      ComboIndex: 0
+      ButtonsCombo: []
+      firstButton: 10
+      OnComboCompleted:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2767333054777369754}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: CloseWindow
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      parentTransform: {fileID: 0}
+  availableTags:
+  - North
+  - South
+  - West
+  - East
+  NorthButton: 119
+  SouthButton: 115
+  WestButton: 97
+  EastButton: 100
+  HackWindowButton: 113
+  AttackWindowButton: 101
+  gameIsRunning: 0
+  playerIndex: 0
+  hackPanel: {fileID: 0}
+  attackPanel: {fileID: 0}
+  OpponentPlayer: {fileID: 0}
+  pointsNeededToWin: 100
+  currentPoints: 0
+  lightHackPoints: 5
+  mediumHackPoints: 15
+  heavyHackPoints: 30
+  windowsRefreshTime: 0
+  windowsCooldownFiller: {fileID: 0}
+  interruptRefreshTime: 0
+  interruptCooldownFiller: {fileID: 0}
+  decreaseHackTime: 0
+  decreaseCooldownFiller: {fileID: 0}
+  decreaseHackPower: 10
+  progressFiller: {fileID: 0}
+  hackedWindows: []
