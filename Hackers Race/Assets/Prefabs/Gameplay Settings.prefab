@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6974095760771621415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7510659816728635927}
+  - component: {fileID: 4881761780098423475}
+  m_Layer: 0
+  m_Name: Gameplay Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7510659816728635927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974095760771621415}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55355394, y: 1.8328, z: 438.06354}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4881761780098423475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974095760771621415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0132d6bfa5156ad42b0cf5d2a647fa94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsRequiredToWin: 100
+  combosLengths:
+  - ComboID: Light Hack
+    comboLength: 4
+  - ComboID: Medium Hack
+    comboLength: 7
+  - ComboID: Heavy Hack
+    comboLength: 10
+  - ComboID: Attack 1
+    comboLength: 3
+  - ComboID: Attack 2
+    comboLength: 3
+  - ComboID: Attack 3
+    comboLength: 6
+  - ComboID: Window Combo
+    comboLength: 2
+  hackValues:
+  - ComboID: Light Hack
+    hackPointsModification: 3
+  - ComboID: Medium Hack
+    hackPointsModification: 8
+  - ComboID: Heavy Hack
+    hackPointsModification: 15
+  - ComboID: Decrease Opponent
+    hackPointsModification: -12
+  cooldownTimes:
+  - ComboID: Attack 1
+    cooldownTime: 3
+  - ComboID: Attack 2
+    cooldownTime: 5
+  - ComboID: Attack 3
+    cooldownTime: 6

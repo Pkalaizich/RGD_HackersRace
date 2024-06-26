@@ -157,11 +157,25 @@ public class PlayerController : MonoBehaviour
 
     public void SetInitialValues()
     {
+        # region close windows if open from last game
+        windowsOpen = false;
+        currentWindow = 0;
+        currentComboButtonIndex = 0;
+        for (int i = 0; i<hackedWindows.Count; i++)
+        {
+            hackedWindows[i].DOFade(0, 0).Play();
+        }
+        #endregion
+
+
+        activeCombo = null;
+        previousCombo= null;
+        
         currentPoints = 0;
         ChangeMode(true);
         progressFiller.fillAmount= 0;
         gameIsRunning = true;
-        RefreshAllCombos();
+        RefreshAllCombos();        
     }
 
     public void GameEnded()
