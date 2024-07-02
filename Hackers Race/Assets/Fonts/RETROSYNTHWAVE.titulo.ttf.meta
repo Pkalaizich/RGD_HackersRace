@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68ea4552200dd4346aa9b3f50f4a53aa
+guid: 56da92a7c883f1147b43e123269f0bb1
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - BM mini
+  - RETROSYNTHWAVE
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
