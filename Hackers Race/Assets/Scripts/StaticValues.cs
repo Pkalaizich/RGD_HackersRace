@@ -10,6 +10,8 @@ public static class StaticValues
         South,
         West,
         East,
+        LeftShoulder,
+        RightShoulder,
         Any=10
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using DG.Tweening;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour
     private float attack1Cooldown;
     private float attack2Cooldown;
     private float attack3Cooldown;
+
+    private TestControl playerTestActions;
     #endregion
 
     //TODO refactor from here
@@ -99,7 +102,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        for(int i =0; i<playerCombos.Count; i++)
+        playerTestActions = new TestControl();
+        playerTestActions.Gameplay.Enable();
+
+        for (int i =0; i<playerCombos.Count; i++)
         {
             for(int j=0; j < playerCombos[i].AvailableCombos.Count; j++)
             {                
@@ -122,38 +128,69 @@ public class PlayerController : MonoBehaviour
         gameController = FindObjectOfType<GameController>();
     }
 
-    private void Update()
+    public void ButtonPressed(InputAction.CallbackContext context)
     {
-        if(gameIsRunning)
+        if (context.performed)
         {
-            if(Input.GetKeyDown(NorthButton))
+            if (context.action.name == playerTestActions.Gameplay.North.name)
             {
                 CheckButton(StaticValues.AssignedButtons.North);
             }
-            if (Input.GetKeyDown(SouthButton))
+            if (context.action.name == playerTestActions.Gameplay.South.name)
             {
                 CheckButton(StaticValues.AssignedButtons.South);
             }
-            if (Input.GetKeyDown(WestButton))
+            if (context.action.name == playerTestActions.Gameplay.West.name)
             {
                 CheckButton(StaticValues.AssignedButtons.West);
             }
-            if (Input.GetKeyDown(EastButton))
+            if (context.action.name == playerTestActions.Gameplay.East.name)
             {
                 CheckButton(StaticValues.AssignedButtons.East);
             }
-            if (Input.GetKeyDown(HackWindowButton)&& !isInHackingMode)
+            if (context.action.name == playerTestActions.Gameplay.ShoulderLeft.name && !isInHackingMode)
             {
                 ChangeMode(true);
-                return;
             }
-            if (Input.GetKeyDown(AttackWindowButton) && isInHackingMode)
+            if (context.action.name == playerTestActions.Gameplay.ShoulderRight.name && isInHackingMode)
             {
                 ChangeMode(false);
-                return;
             }
         }
     }
+
+    //private void Update()
+    //{
+    //    if(gameIsRunning)
+    //    {
+    //        if(Input.GetKeyDown(NorthButton))
+    //        {
+    //            CheckButton(StaticValues.AssignedButtons.North);
+    //        }
+    //        if (Input.GetKeyDown(SouthButton))
+    //        {
+    //            CheckButton(StaticValues.AssignedButtons.South);
+    //        }
+    //        if (Input.GetKeyDown(WestButton))
+    //        {
+    //            CheckButton(StaticValues.AssignedButtons.West);
+    //        }
+    //        if (Input.GetKeyDown(EastButton))
+    //        {
+    //            CheckButton(StaticValues.AssignedButtons.East);
+    //        }
+    //        if (Input.GetKeyDown(HackWindowButton)&& !isInHackingMode)
+    //        {
+    //            ChangeMode(true);
+    //            return;
+    //        }
+    //        if (Input.GetKeyDown(AttackWindowButton) && isInHackingMode)
+    //        {
+    //            ChangeMode(false);
+    //            return;
+    //        }
+    //    }
+    //}
 
     public void SetInitialValues()
     {
@@ -432,5 +469,8 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-
+    public int GetPlayerIndex()
+    {
+        return playerIndex;
+    }
 }

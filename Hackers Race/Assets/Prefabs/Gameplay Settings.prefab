@@ -49,15 +49,15 @@ MonoBehaviour:
   - ComboID: Light Hack
     comboLength: 4
   - ComboID: Medium Hack
-    comboLength: 7
+    comboLength: 6
   - ComboID: Heavy Hack
-    comboLength: 10
+    comboLength: 9
   - ComboID: Attack 1
-    comboLength: 3
+    comboLength: 5
   - ComboID: Attack 2
     comboLength: 3
   - ComboID: Attack 3
-    comboLength: 6
+    comboLength: 7
   - ComboID: Window Combo
     comboLength: 2
   hackValues:
@@ -66,13 +66,13 @@ MonoBehaviour:
   - ComboID: Medium Hack
     hackPointsModification: 8
   - ComboID: Heavy Hack
-    hackPointsModification: 15
+    hackPointsModification: 18
   - ComboID: Decrease Opponent
-    hackPointsModification: -12
+    hackPointsModification: -10
   cooldownTimes:
   - ComboID: Attack 1
-    cooldownTime: 3
+    cooldownTime: 15
   - ComboID: Attack 2
-    cooldownTime: 5
+    cooldownTime: 15
   - ComboID: Attack 3
-    cooldownTime: 6
+    cooldownTime: 20

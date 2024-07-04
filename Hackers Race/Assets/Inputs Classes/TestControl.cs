@@ -29,7 +29,7 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""North"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""0e9c5832-f181-4a0f-94a3-eb953b803e86"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -38,7 +38,7 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""South"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""b85c2c60-5c4a-4232-82da-b7463064c6f0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -47,7 +47,7 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""West"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""e1718d88-14c1-44c4-ac8a-aa466af35f24"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -56,12 +56,39 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""East"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""742d4747-98d3-4854-aec1-48aa67e9f5bf"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShoulderLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""ccf8de70-57fe-44b5-a489-ab90e3a4b4fd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShoulderRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""63205b20-bb79-42b1-8832-9ffdc7ae81a2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Destroy"",
+                    ""type"": ""Button"",
+                    ""id"": ""8809cb07-26ca-47ec-81fe-8d03648fedc1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -90,6 +117,39 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""00215dec-a68e-41c1-9dac-59dca9a3432f"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/hat/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""North"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f920e7eb-6ac5-4ebb-baa7-a10d87176017"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""North"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e235269a-f98f-4cc9-8eea-b16a5f7ea3bc"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""North"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0d9c04a-a48e-4fa1-8e05-9714eaa56cb8"",
                     ""path"": ""<HID::PowerA NSW wired controller>/button4"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -123,6 +183,39 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3981c819-59a0-469c-95c2-be07a38bee29"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/hat/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""South"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6aa04e13-5049-4952-9a9b-998293f6b2ea"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""South"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76cbde60-03bb-4358-b537-1995374a0f0c"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""South"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16f2dd2c-744e-490c-a339-18518567ccf5"",
                     ""path"": ""<HID::PowerA NSW wired controller>/button2"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -166,6 +259,39 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8fc64cac-90a9-4005-a027-cb18f0473e01"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/hat/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""West"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24c26c5c-03fc-4d9b-9aab-66513825816b"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""West"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7cbd6644-fdd9-4b04-a4d2-f7bd16f6cebb"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""West"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""740f68bb-0afe-471d-9f3f-acb737f51e80"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
@@ -194,6 +320,252 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""NSW Wired"",
                     ""action"": ""East"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2dce5283-1359-482f-a75f-78604a02a215"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/hat/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""East"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ae886ff-99a4-4391-a309-8ed24210c6ce"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""East"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4311e7a4-8fe4-428e-8941-091494b39109"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""East"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40dad7a3-00e3-45ad-a2ae-ec9a59aef4bf"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/button5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""ShoulderLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b2c77b6-21a7-4fb2-8ae0-21f895a2b85b"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/button7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""ShoulderLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba02200e-ce36-4152-9600-0fd08cec6c0c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ShoulderLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97540eac-763a-43ff-9e40-0a26df1af743"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ShoulderLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5eff5956-a9a4-4c0b-ac8c-526742ffc222"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ShoulderLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82d0f357-f66b-4725-b5b3-e544d8eb028a"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/button6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""ShoulderRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c96ab7a-5ccc-4161-9e6f-8c838e5e80d8"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/button8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""ShoulderRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54c6ad1a-0a60-445a-9b86-f3fcdfd51819"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ShoulderRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4608c09e-cb4a-4757-8c68-57ea65a2b43c"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ShoulderRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e06c59d0-8333-4f84-ada6-40d45e18727e"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ShoulderRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d517eb3-43dc-49de-a1be-19c3cd0079a9"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Destroy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""CharSelection"",
+            ""id"": ""7193eb7c-7754-4e23-9ac2-ce2f1701a4fe"",
+            ""actions"": [
+                {
+                    ""name"": ""Disconnect"",
+                    ""type"": ""Button"",
+                    ""id"": ""681325a2-79e4-4c23-acce-feb201cf2f96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Accept"",
+                    ""type"": ""Button"",
+                    ""id"": ""e27c1d93-46f4-41a2-a1b6-848c298b8fb4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""af55221b-0d07-47e3-b85e-1f92c3949419"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Disconnect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74338b89-8b87-4ad0-9a02-1d086b9565a6"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Disconnect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2095a357-6868-477c-9496-af243aaae645"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/button3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""Disconnect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""267f643d-75c3-4d6c-aafd-cb093d7ddc4f"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Accept"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4cc46e75-8828-4539-a61f-cae767dbbb52"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Accept"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5cbbba2-e8fd-4a6e-84bd-c70b96456ee8"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""Accept"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -242,6 +614,13 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         m_Gameplay_South = m_Gameplay.FindAction("South", throwIfNotFound: true);
         m_Gameplay_West = m_Gameplay.FindAction("West", throwIfNotFound: true);
         m_Gameplay_East = m_Gameplay.FindAction("East", throwIfNotFound: true);
+        m_Gameplay_ShoulderLeft = m_Gameplay.FindAction("ShoulderLeft", throwIfNotFound: true);
+        m_Gameplay_ShoulderRight = m_Gameplay.FindAction("ShoulderRight", throwIfNotFound: true);
+        m_Gameplay_Destroy = m_Gameplay.FindAction("Destroy", throwIfNotFound: true);
+        // CharSelection
+        m_CharSelection = asset.FindActionMap("CharSelection", throwIfNotFound: true);
+        m_CharSelection_Disconnect = m_CharSelection.FindAction("Disconnect", throwIfNotFound: true);
+        m_CharSelection_Accept = m_CharSelection.FindAction("Accept", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -307,6 +686,9 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_South;
     private readonly InputAction m_Gameplay_West;
     private readonly InputAction m_Gameplay_East;
+    private readonly InputAction m_Gameplay_ShoulderLeft;
+    private readonly InputAction m_Gameplay_ShoulderRight;
+    private readonly InputAction m_Gameplay_Destroy;
     public struct GameplayActions
     {
         private @TestControl m_Wrapper;
@@ -315,6 +697,9 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         public InputAction @South => m_Wrapper.m_Gameplay_South;
         public InputAction @West => m_Wrapper.m_Gameplay_West;
         public InputAction @East => m_Wrapper.m_Gameplay_East;
+        public InputAction @ShoulderLeft => m_Wrapper.m_Gameplay_ShoulderLeft;
+        public InputAction @ShoulderRight => m_Wrapper.m_Gameplay_ShoulderRight;
+        public InputAction @Destroy => m_Wrapper.m_Gameplay_Destroy;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -336,6 +721,15 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @East.started += instance.OnEast;
             @East.performed += instance.OnEast;
             @East.canceled += instance.OnEast;
+            @ShoulderLeft.started += instance.OnShoulderLeft;
+            @ShoulderLeft.performed += instance.OnShoulderLeft;
+            @ShoulderLeft.canceled += instance.OnShoulderLeft;
+            @ShoulderRight.started += instance.OnShoulderRight;
+            @ShoulderRight.performed += instance.OnShoulderRight;
+            @ShoulderRight.canceled += instance.OnShoulderRight;
+            @Destroy.started += instance.OnDestroy;
+            @Destroy.performed += instance.OnDestroy;
+            @Destroy.canceled += instance.OnDestroy;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -352,6 +746,15 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @East.started -= instance.OnEast;
             @East.performed -= instance.OnEast;
             @East.canceled -= instance.OnEast;
+            @ShoulderLeft.started -= instance.OnShoulderLeft;
+            @ShoulderLeft.performed -= instance.OnShoulderLeft;
+            @ShoulderLeft.canceled -= instance.OnShoulderLeft;
+            @ShoulderRight.started -= instance.OnShoulderRight;
+            @ShoulderRight.performed -= instance.OnShoulderRight;
+            @ShoulderRight.canceled -= instance.OnShoulderRight;
+            @Destroy.started -= instance.OnDestroy;
+            @Destroy.performed -= instance.OnDestroy;
+            @Destroy.canceled -= instance.OnDestroy;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -369,6 +772,60 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // CharSelection
+    private readonly InputActionMap m_CharSelection;
+    private List<ICharSelectionActions> m_CharSelectionActionsCallbackInterfaces = new List<ICharSelectionActions>();
+    private readonly InputAction m_CharSelection_Disconnect;
+    private readonly InputAction m_CharSelection_Accept;
+    public struct CharSelectionActions
+    {
+        private @TestControl m_Wrapper;
+        public CharSelectionActions(@TestControl wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Disconnect => m_Wrapper.m_CharSelection_Disconnect;
+        public InputAction @Accept => m_Wrapper.m_CharSelection_Accept;
+        public InputActionMap Get() { return m_Wrapper.m_CharSelection; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CharSelectionActions set) { return set.Get(); }
+        public void AddCallbacks(ICharSelectionActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CharSelectionActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CharSelectionActionsCallbackInterfaces.Add(instance);
+            @Disconnect.started += instance.OnDisconnect;
+            @Disconnect.performed += instance.OnDisconnect;
+            @Disconnect.canceled += instance.OnDisconnect;
+            @Accept.started += instance.OnAccept;
+            @Accept.performed += instance.OnAccept;
+            @Accept.canceled += instance.OnAccept;
+        }
+
+        private void UnregisterCallbacks(ICharSelectionActions instance)
+        {
+            @Disconnect.started -= instance.OnDisconnect;
+            @Disconnect.performed -= instance.OnDisconnect;
+            @Disconnect.canceled -= instance.OnDisconnect;
+            @Accept.started -= instance.OnAccept;
+            @Accept.performed -= instance.OnAccept;
+            @Accept.canceled -= instance.OnAccept;
+        }
+
+        public void RemoveCallbacks(ICharSelectionActions instance)
+        {
+            if (m_Wrapper.m_CharSelectionActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICharSelectionActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CharSelectionActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CharSelectionActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CharSelectionActions @CharSelection => new CharSelectionActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -402,5 +859,13 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         void OnSouth(InputAction.CallbackContext context);
         void OnWest(InputAction.CallbackContext context);
         void OnEast(InputAction.CallbackContext context);
+        void OnShoulderLeft(InputAction.CallbackContext context);
+        void OnShoulderRight(InputAction.CallbackContext context);
+        void OnDestroy(InputAction.CallbackContext context);
+    }
+    public interface ICharSelectionActions
+    {
+        void OnDisconnect(InputAction.CallbackContext context);
+        void OnAccept(InputAction.CallbackContext context);
     }
 }
