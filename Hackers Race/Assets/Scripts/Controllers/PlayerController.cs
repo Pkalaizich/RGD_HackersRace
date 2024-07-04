@@ -5,57 +5,65 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using DG.Tweening;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]private List<PlayerCombos> playerCombos = new List<PlayerCombos>();
     [SerializeField] private List<string> availableTags= new List<string>(); //TODO refactor this
+    [SerializeField] private int playerIndex;
+    [SerializeField] private PlayerController OpponentPlayer;
+    [SerializeField] private CanvasGroup hackPanel;
+    [SerializeField] private CanvasGroup attackPanel;
+
+    [Header("UI elements")]
+    [SerializeField] private Image progressFiller;
+    [SerializeField] private List<CanvasGroup> hackedWindows;
+    [SerializeField] private Image windowsCooldownFiller;
+    [SerializeField] private Image interruptCooldownFiller;
+    [SerializeField] private Image decreaseCooldownFiller;
+    [SerializeField] private Image statusIcon;
+    [SerializeField] private Sprite hackingSprite;
+    [SerializeField] private Sprite attackingSprite;
+
+
+    #region private variables
     private Combo activeCombo = null;
     private Combo previousCombo = null;
     private int currentComboButtonIndex;
     private int previousComboButtonIndex;
 
-    private bool isInHackingMode =true;
+    private bool isInHackingMode = true;
+    private float pointsNeededToWin;
+    private float currentPoints;
+
+    private float lightHackPoints;
+    private float mediumHackPoints;
+    private float heavyHackPoints;
+    private float decreaseHackPower;
+
+    private bool gameIsRunning = false;
+
+    private int currentWindow = 0;
+
+    private bool windowsOpen = false;
+
+    private GameController gameController;
+
+    private float attack1Cooldown;
+    private float attack2Cooldown;
+    private float attack3Cooldown;
+
+    private TestControl playerTestActions;
+    #endregion
 
     //TODO refactor from here
     [SerializeField] private KeyCode NorthButton;
     [SerializeField] private KeyCode SouthButton;
     [SerializeField] private KeyCode WestButton;
     [SerializeField] private KeyCode EastButton;
-
     [SerializeField] private KeyCode HackWindowButton;
     [SerializeField] private KeyCode AttackWindowButton;
-
-    public bool gameIsRunning = false;
-    public int playerIndex;
-
-    public CanvasGroup hackPanel;
-    public CanvasGroup attackPanel;
-
-    public PlayerController OpponentPlayer;
-
-    public float pointsNeededToWin;
-    public float currentPoints;
-    public float lightHackPoints;
-    public float mediumHackPoints;
-    public float heavyHackPoints;
-
-    public float windowsRefreshTime;
-    private float windowsTimer;
-    public Image windowsCooldownFiller;
-    public float interruptRefreshTime;
-    private float interruptTimer;
-    public Image interruptCooldownFiller;
-    public float decreaseHackTime;
-    private float decreaseTimer;
-    public Image decreaseCooldownFiller;
-
-    public float decreaseHackPower;
-    [Header("UI elements")]
-    public Image progressFiller;
-    public List<CanvasGroup> hackedWindows;
-    private int currentWindow = 0;
-    private bool windowsOpen = false;
     //TO HERE
 
 
@@ -63,7 +71,6 @@ public class PlayerController : MonoBehaviour
     public class PlayerCombos
     {
         public string ComboType;
-        //public bool IsActiveCombo = false;        
         public List<Combo> AvailableCombos;
     }
 
@@ -71,6 +78,7 @@ public class PlayerController : MonoBehaviour
     public class Combo
     {        
         public string ComboName;
+        public string SettingID;
         public int ComboLength;
         public int ComboIndex;
         public List<ButtonIndicator> ButtonsCombo = new List<ButtonIndicator>();
@@ -78,6 +86,7 @@ public class PlayerController : MonoBehaviour
         public UnityEvent <int> OnComboCompleted;
         public GameObject parentTransform;
 
+        public bool OnCooldown;
         public bool ComboCompleted()
         {
             foreach(ButtonIndicator button in ButtonsCombo)
@@ -91,95 +100,186 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void Start()
     {
-        if(gameIsRunning)
+        playerTestActions = new TestControl();
+        playerTestActions.Gameplay.Enable();
+
+        for (int i =0; i<playerCombos.Count; i++)
         {
-            if(Input.GetKeyDown(NorthButton))
+            for(int j=0; j < playerCombos[i].AvailableCombos.Count; j++)
+            {                
+                string id = playerCombos[i].AvailableCombos[j].SettingID;
+                playerCombos[i].AvailableCombos[j].ComboLength = GameplaySettings.Instance.GetLength(id);
+            }
+        }
+
+        pointsNeededToWin = GameplaySettings.Instance.REQUIRED_POINTS;
+
+        lightHackPoints = GameplaySettings.Instance.GetHackPointsValues("Light Hack");
+        mediumHackPoints = GameplaySettings.Instance.GetHackPointsValues("Medium Hack");
+        heavyHackPoints = GameplaySettings.Instance.GetHackPointsValues("Heavy Hack");
+        decreaseHackPower = GameplaySettings.Instance.GetHackPointsValues("Decrease Opponent");
+
+        attack1Cooldown = GameplaySettings.Instance.GetCooldown("Attack 1");
+        attack2Cooldown = GameplaySettings.Instance.GetCooldown("Attack 2");
+        attack3Cooldown = GameplaySettings.Instance.GetCooldown("Attack 3");
+
+        gameController = FindObjectOfType<GameController>();
+    }
+
+    public void ButtonPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (context.action.name == playerTestActions.Gameplay.North.name)
             {
                 CheckButton(StaticValues.AssignedButtons.North);
             }
-            if (Input.GetKeyDown(SouthButton))
+            if (context.action.name == playerTestActions.Gameplay.South.name)
             {
                 CheckButton(StaticValues.AssignedButtons.South);
             }
-            if (Input.GetKeyDown(WestButton))
+            if (context.action.name == playerTestActions.Gameplay.West.name)
             {
                 CheckButton(StaticValues.AssignedButtons.West);
             }
-            if (Input.GetKeyDown(EastButton))
+            if (context.action.name == playerTestActions.Gameplay.East.name)
             {
                 CheckButton(StaticValues.AssignedButtons.East);
             }
-            if (Input.GetKeyDown(HackWindowButton)&& !isInHackingMode)
+            if (context.action.name == playerTestActions.Gameplay.ShoulderLeft.name && !isInHackingMode)
             {
                 ChangeMode(true);
-                return;
             }
-            if (Input.GetKeyDown(AttackWindowButton) && isInHackingMode)
+            if (context.action.name == playerTestActions.Gameplay.ShoulderRight.name && isInHackingMode)
             {
                 ChangeMode(false);
-                return;
             }
         }
     }
 
+    //private void Update()
+    //{
+    //    if(gameIsRunning)
+    //    {
+    //        if(Input.GetKeyDown(NorthButton))
+    //        {
+    //            CheckButton(StaticValues.AssignedButtons.North);
+    //        }
+    //        if (Input.GetKeyDown(SouthButton))
+    //        {
+    //            CheckButton(StaticValues.AssignedButtons.South);
+    //        }
+    //        if (Input.GetKeyDown(WestButton))
+    //        {
+    //            CheckButton(StaticValues.AssignedButtons.West);
+    //        }
+    //        if (Input.GetKeyDown(EastButton))
+    //        {
+    //            CheckButton(StaticValues.AssignedButtons.East);
+    //        }
+    //        if (Input.GetKeyDown(HackWindowButton)&& !isInHackingMode)
+    //        {
+    //            ChangeMode(true);
+    //            return;
+    //        }
+    //        if (Input.GetKeyDown(AttackWindowButton) && isInHackingMode)
+    //        {
+    //            ChangeMode(false);
+    //            return;
+    //        }
+    //    }
+    //}
+
+    public void SetInitialValues()
+    {
+        # region close windows if open from last game
+        windowsOpen = false;
+        currentWindow = 0;
+        currentComboButtonIndex = 0;
+        for (int i = 0; i<hackedWindows.Count; i++)
+        {
+            hackedWindows[i].DOFade(0, 0).Play();
+        }
+        #endregion
+
+
+        activeCombo = null;
+        previousCombo= null;
+        
+        currentPoints = 0;
+        ChangeMode(true);
+        progressFiller.fillAmount= 0;
+        gameIsRunning = true;
+        RefreshAllCombos();        
+    }
+
+    public void GameEnded()
+    {
+        ChangeMode(true);
+        gameIsRunning= false;
+    }
+
     public void CheckButton(StaticValues.AssignedButtons buttonPressed)
     {
-        if (activeCombo == null)
+        if(gameIsRunning)
         {
-            int comboTypeIndex = isInHackingMode ? 0 : 1;
-            foreach(Combo combo in playerCombos[comboTypeIndex].AvailableCombos)
+            if (activeCombo == null)
             {
-                if(buttonPressed == combo.ButtonsCombo[0].ASSIGNED)
+                int comboTypeIndex = isInHackingMode ? 0 : 1;
+                foreach (Combo combo in playerCombos[comboTypeIndex].AvailableCombos)
                 {
-                    activeCombo = combo;
-                    combo.ButtonsCombo[0].SetButtonStatus(true);
-                    currentComboButtonIndex++;
-                    break;
-                }
-            }
-            if(activeCombo == null)
-            {
-                Debug.Log("BAD INPUT");
-            }
-        }
-        else
-        {
-            ButtonIndicator nextButton = activeCombo.ButtonsCombo.First(x => !x.IsActive);
-            if(nextButton != null)
-            {
-                if(nextButton.ASSIGNED == buttonPressed)
-                {
-                    activeCombo.ButtonsCombo[currentComboButtonIndex].SetButtonStatus(true);
-                    currentComboButtonIndex++;
-                    if(activeCombo.ComboCompleted())
+                    if (buttonPressed == combo.ButtonsCombo[0].ASSIGNED && combo.ButtonsCombo[0].IsEnabled)
                     {
-                        currentComboButtonIndex = 0;
-                        RefreshCombo(activeCombo);
-                        activeCombo.OnComboCompleted?.Invoke(activeCombo.ComboIndex);
-                        if (!windowsOpen && activeCombo != previousCombo)
-                        {
-                            activeCombo = null;
-                            previousCombo = null;
-                        }
-                        else if(activeCombo == previousCombo)
-                        {
-                            previousCombo= null;
-                        }
+                        activeCombo = combo;
+                        combo.ButtonsCombo[0].SetButtonStatus(true);
+                        currentComboButtonIndex++;
+                        break;
                     }
                 }
-                else
+                if (activeCombo == null)
                 {
-                    DeleteCurrentCombo();
-                    Debug.LogWarning("BAD INPUT");
+                    Debug.Log("BAD INPUT");
                 }
             }
             else
             {
-                Debug.LogError("Unexpected, something went wrong");
+                ButtonIndicator nextButton = activeCombo.ButtonsCombo.First(x => !x.IsActive);
+                if (nextButton != null)
+                {
+                    if (nextButton.ASSIGNED == buttonPressed)
+                    {
+                        activeCombo.ButtonsCombo[currentComboButtonIndex].SetButtonStatus(true);
+                        currentComboButtonIndex++;
+                        if (activeCombo.ComboCompleted())
+                        {
+                            currentComboButtonIndex = 0;
+                            RefreshCombo(activeCombo);
+                            activeCombo.OnComboCompleted?.Invoke(activeCombo.ComboIndex);
+                            if (!windowsOpen && activeCombo != previousCombo)
+                            {
+                                activeCombo = null;
+                                previousCombo = null;
+                            }
+                            else if (activeCombo == previousCombo)
+                            {
+                                previousCombo = null;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        DeleteCurrentCombo();
+                        Debug.LogWarning("BAD INPUT");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("Unexpected, something went wrong");
+                }
             }
-        }
+        }        
     }
 
     public void ChangeMode(bool hacking)
@@ -189,11 +289,13 @@ public class PlayerController : MonoBehaviour
         {
             hackPanel.DOFade(1,0);
             attackPanel.DOFade(0, 0);
+            statusIcon.sprite = hackingSprite;
         }
         else
         {
             hackPanel.DOFade(0, 0);
             attackPanel.DOFade(1, 0);
+            statusIcon.sprite = attackingSprite;
         }        
         DeleteCurrentCombo();
     }
@@ -270,13 +372,13 @@ public class PlayerController : MonoBehaviour
 
         if(currentPoints>=pointsNeededToWin)
         {
-            FindObjectOfType<GameController>().GameOver(playerIndex); //TODO REFACTOR THIS
+            gameController.OnPlayerWon?.Invoke(playerIndex);            
         }
-
         progressFiller.DOFillAmount(progress,0.2f).Play();
     }
 
-    //TODO refactor, no es necesario escribir los ataques por separado
+
+    #region CombosResults
 
     public void OpenWindows()
     {
@@ -315,14 +417,38 @@ public class PlayerController : MonoBehaviour
         if(attackUsed==0)
         {
             OpponentPlayer.OpenWindows();
+            for(int i =0; i < playerCombos[1].AvailableCombos[0].ButtonsCombo.Count; i++)
+            {
+                playerCombos[1].AvailableCombos[0].ButtonsCombo[i].SetButonEnabled(false, attack1Cooldown);
+            }            
+            windowsCooldownFiller.DOFillAmount(1, attack1Cooldown).SetEase(Ease.Linear).Play().OnComplete(() =>
+            {
+                windowsCooldownFiller.fillAmount= 0;                
+            });
         }
         if (attackUsed == 1)
         {
             OpponentPlayer.DeleteCurrentCombo();
+            for (int i = 0; i < playerCombos[1].AvailableCombos[1].ButtonsCombo.Count; i++)
+            {
+                playerCombos[1].AvailableCombos[1].ButtonsCombo[i].SetButonEnabled(false, attack2Cooldown);
+            }
+            interruptCooldownFiller.DOFillAmount(1, attack2Cooldown).SetEase(Ease.Linear).Play().OnComplete(() =>
+            {
+                interruptCooldownFiller.fillAmount = 0;
+            });
         }
         if (attackUsed == 2)
         {
-            OpponentPlayer.ModifyHackProgress(-decreaseHackPower);
+            OpponentPlayer.ModifyHackProgress(decreaseHackPower);
+            for (int i = 0; i < playerCombos[1].AvailableCombos[2].ButtonsCombo.Count; i++)
+            {
+                playerCombos[1].AvailableCombos[2].ButtonsCombo[i].SetButonEnabled(false, attack3Cooldown);
+            }
+            decreaseCooldownFiller.DOFillAmount(1, attack3Cooldown).SetEase(Ease.Linear).Play().OnComplete(() =>
+            {
+                decreaseCooldownFiller.fillAmount = 0;
+            });
         }
     }
 
@@ -341,12 +467,10 @@ public class PlayerController : MonoBehaviour
             ModifyHackProgress(heavyHackPoints);
         }
     }
-    //UNTIL HERE
+    #endregion
 
-    public enum AttackTypes
+    public int GetPlayerIndex()
     {
-        OpenWindows,
-        InterruptCombo,
-        ReduceHack
+        return playerIndex;
     }
 }

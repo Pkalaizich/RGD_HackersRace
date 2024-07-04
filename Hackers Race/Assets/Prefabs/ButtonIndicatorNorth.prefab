@@ -168,6 +168,9 @@ MonoBehaviour:
   buttonIcon: {fileID: 0}
   ButtonBack: {fileID: 724518206541386463}
   poolTag: North
+  activeColor: {r: 0, g: 0.98039216, b: 0.5803922, a: 1}
+  inactiveColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   xboxIcon: {fileID: 0}
   psIcon: {fileID: 0}
   switchIcon: {fileID: 0}

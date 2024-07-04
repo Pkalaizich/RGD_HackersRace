@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Events;
 
 public  class GameController : MonoBehaviour
 {
@@ -18,19 +19,19 @@ public  class GameController : MonoBehaviour
     private StateController stateController;
     public int WINNER => lastWinner;
 
+    private UnityEvent<int> playerWon = new UnityEvent <int>();
+    public UnityEvent<int> OnPlayerWon => playerWon;
+
     private void Start()
     {
         stateController =FindObjectOfType<StateController>();
+        playerWon.AddListener(GameOver);
     }
     public void SetUp()
     {
         foreach(PlayerController controller in playerControllers)
         {
-            controller.ChangeMode(true);            
-            controller.gameIsRunning = true;
-            controller.RefreshAllCombos();
-            controller.currentPoints= 0;
-            controller.progressFiller.fillAmount= 0;            
+            controller.SetInitialValues();          
         }
         gameEnded = false;
     }
@@ -48,8 +49,7 @@ public  class GameController : MonoBehaviour
             lastWinner= winnerIndex;
             foreach (PlayerController controller in playerControllers)
             {
-                controller.ChangeMode(true);
-                controller.gameIsRunning= false;
+                controller.GameEnded();
             }            
             stateController.NextState();
         }

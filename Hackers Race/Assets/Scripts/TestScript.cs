@@ -15,13 +15,6 @@ public class TestScript : MonoBehaviour
     {        
         playerTestActions = new TestControl();
         playerTestActions.Gameplay.Enable();
-
-        
-
-        //playerTestActions.Gameplay.North.performed += ((context)=>LightButton(AssignedButtons.North));
-        //playerTestActions.Gameplay.South.performed += ((context) => LightButton(AssignedButtons.South));
-        //playerTestActions.Gameplay.West.performed += ((context) => LightButton(AssignedButtons.West));
-        //playerTestActions.Gameplay.East.performed += ((context) => LightButton(AssignedButtons.East));        
     }
 
     public void SetDevice(InputDevice device)

@@ -3,22 +3,90 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class PlayersManager : MonoBehaviour
 {
-    [SerializeField] private List<PlayerInfo> playersInfo;
+    public static UnityEvent <int> OnPlayerLeft = new UnityEvent<int>();
+    public static UnityEvent<int> OnPlayerJoined = new UnityEvent<int>();
+
+    #region Singleton
+    static private PlayersManager instance;
+    static public PlayersManager Instance
+    {
+        get { return instance; }
+    }
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
+
+    private List<PlayerInfo> playersInfo = new List<PlayerInfo>();
+    public List<PlayerInfo> INFO => playersInfo; 
+
+    private void Start()
+    {
+        for(int i=0;i<2; i++)
+        {
+            playersInfo.Add(new PlayerInfo(null, false));
+        }
+    }
 
     [System.Serializable]
     public class PlayerInfo
     {
-        public List<Image> buttonsImages;
+        public PlayerBehaviour playerBehaviour;
         public bool joined = false;
+
+        public PlayerInfo(PlayerBehaviour newPlayerBehaviour, bool playerJoined)
+        {
+            playerBehaviour= newPlayerBehaviour;
+            joined=playerJoined;
+        }
     }
 
-    public List<Image> ReturnImages()
+    public void AddPlayer(PlayerBehaviour newbehaviour, int playerIndex)
     {
-        PlayerInfo info = playersInfo.First(x => x.joined == false);
-        info.joined = true;
-        return info.buttonsImages;
+        playersInfo[playerIndex].playerBehaviour = newbehaviour;
+        playersInfo[playerIndex].joined = true;
+
+        OnPlayerJoined?.Invoke(playerIndex);
     }
+
+    public void RemovePlayer(int playerIndex)
+    {
+        playersInfo[playerIndex].playerBehaviour = null;
+        playersInfo[playerIndex].joined = false;
+
+        OnPlayerLeft?.Invoke(playerIndex);
+    }
+
+    public void ChangeCurrentActionMaps(int mapToActivate)
+    {
+        for(int i =0; i<playersInfo.Count; i++)
+        {
+            if(playersInfo[i].playerBehaviour!=null)
+            {
+                playersInfo[i].playerBehaviour.EnableActionMap(mapToActivate);
+            }
+        }
+    }
+    
+    public bool AllPlayersJoined()
+    {
+        for(int i = 0; i<playersInfo.Count; i++) 
+        {
+            if (playersInfo[i].joined==false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    
 }

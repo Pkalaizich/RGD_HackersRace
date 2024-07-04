@@ -10,6 +10,9 @@ public class ButtonIndicator : MonoBehaviour
     [SerializeField] private Image buttonIcon;
     [SerializeField] private Image ButtonBack;
     [SerializeField] private string poolTag;
+    [SerializeField] private Color activeColor;
+    [SerializeField] private Color inactiveColor;
+    [SerializeField] private Color disabledColor;
     public string POOL_TAG=>poolTag;
 
     [Header("Icons for different controllers")]
@@ -18,34 +21,43 @@ public class ButtonIndicator : MonoBehaviour
     [SerializeField] private Sprite switchIcon;
     [SerializeField] private Sprite keyboardIcon;
     [SerializeField] private Sprite numpadIcon;
-
-    private bool firstDisable = true;
+    
     public bool IsActive { get; private set; }
+    public bool IsEnabled { get; private set; }
 
     private void OnEnable()
     {
         //IsActive = false;
         SetButtonStatus(false);
+        SetButonEnabled(true, 0);
     }
 
     private void OnDisable()
     {
-        //IsActive = false;
-        //if(firstDisable)
-        //{
-        //    firstDisable= false;
-        //}
-        //else
-        //{
-        //    SetButtonStatus(false);
-        //    ObjectPooler.Instance.Enqueue(poolTag, this.gameObject);
-        //}        
+        StopAllCoroutines();        
     }
 
     public void SetButtonStatus(bool status)
     {
         IsActive = status;
-        Color newColor = status? Color.green : Color.white;
+        Color newColor = status? activeColor : inactiveColor;
         ButtonBack.color= newColor;
+    }
+
+    public void SetButonEnabled(bool enabled, float cooldownTime)
+    {
+        IsEnabled= enabled;
+        Color newColor = enabled ? inactiveColor : disabledColor;
+        ButtonBack.color = newColor;
+        if (!enabled)
+        {
+            StartCoroutine(ReactivateButton(cooldownTime));
+        }
+    }
+
+    private IEnumerator ReactivateButton(float timeToReactivate)
+    {
+        yield return new WaitForSeconds(timeToReactivate);
+        SetButonEnabled(true, 0);
     }
 }

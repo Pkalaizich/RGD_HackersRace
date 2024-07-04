@@ -8,20 +8,50 @@ using UnityEngine.UI;
 public class PlayerBehaviour : MonoBehaviour
 {
     private PlayerInput playerInput;
-    private TestScript testScript;
+    public PlayerInput PLAYER_INPUT=> playerInput;    
+    private PlayerController playerController;
+
+    private TestControl testControl;
+
+    private int currentMap = 0;
+    
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        var testers = FindObjectsOfType<TestScript>();
-        var index = playerInput.playerIndex;
-        testScript = testers.FirstOrDefault(x => x.GetPlayerIndex() == index);
-
+        var player = FindObjectsOfType<PlayerController>();
+        var index = playerInput.playerIndex;        
+        playerController = player.FirstOrDefault(x => x.GetPlayerIndex() == index);
+        PlayersManager.Instance.AddPlayer(this, index);
+        if(FindObjectOfType<StateController>().CURRENTSTATE == 1)
+        {
+            EnableActionMap(1);
+        }
+        else
+        {
+            EnableActionMap(0);
+        }
         
     }
 
     public void OnButtonPressed(InputAction.CallbackContext context)
     {
-        testScript.ButtonPressed(context);
+        if(context.performed)
+        {
+            playerController.ButtonPressed(context);
+        }        
+    }
+
+    public void EnableActionMap(int mapToActivate)
+    {
+        playerInput.actions.actionMaps[currentMap].Disable();
+        playerInput.actions.actionMaps[mapToActivate].Enable();
+        currentMap= mapToActivate;
+    }
+
+    public void DisconnectPlayer()
+    {
+        PlayersManager.Instance.RemovePlayer(playerInput.playerIndex);
+        Destroy(this.gameObject);
     }
 }

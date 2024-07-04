@@ -48,6 +48,7 @@ MonoBehaviour:
   - ComboType: Hack
     AvailableCombos:
     - ComboName: Light Hack
+      SettingID: Light Hack
       ComboLength: 4
       ComboIndex: 0
       ButtonsCombo: []
@@ -68,7 +69,9 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       parentTransform: {fileID: 0}
+      OnCooldown: 0
     - ComboName: Medium Hack
+      SettingID: Medium Hack
       ComboLength: 7
       ComboIndex: 1
       ButtonsCombo: []
@@ -89,7 +92,9 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       parentTransform: {fileID: 0}
+      OnCooldown: 0
     - ComboName: Heavy Hack
+      SettingID: Heavy Hack
       ComboLength: 10
       ComboIndex: 2
       ButtonsCombo: []
@@ -110,9 +115,11 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       parentTransform: {fileID: 0}
+      OnCooldown: 0
   - ComboType: Attack
     AvailableCombos:
     - ComboName: Open Windows
+      SettingID: Attack 1
       ComboLength: 3
       ComboIndex: 0
       ButtonsCombo: []
@@ -133,7 +140,9 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       parentTransform: {fileID: 0}
+      OnCooldown: 0
     - ComboName: Interrupt Hack
+      SettingID: Attack 2
       ComboLength: 5
       ComboIndex: 1
       ButtonsCombo: []
@@ -154,7 +163,9 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       parentTransform: {fileID: 0}
+      OnCooldown: 0
     - ComboName: Decrease Oponent Hack
+      SettingID: Attack 3
       ComboLength: 8
       ComboIndex: 2
       ButtonsCombo: []
@@ -175,9 +186,11 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       parentTransform: {fileID: 0}
+      OnCooldown: 0
   - ComboType: Windows
     AvailableCombos:
     - ComboName: CloseWindow1
+      SettingID: Window Combo
       ComboLength: 2
       ComboIndex: 0
       ButtonsCombo: []
@@ -198,7 +211,9 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       parentTransform: {fileID: 0}
+      OnCooldown: 0
     - ComboName: CloseWindow2
+      SettingID: Window Combo
       ComboLength: 2
       ComboIndex: 0
       ButtonsCombo: []
@@ -219,7 +234,9 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       parentTransform: {fileID: 0}
+      OnCooldown: 0
     - ComboName: CloseWindow3
+      SettingID: Window Combo
       ComboLength: 2
       ComboIndex: 0
       ButtonsCombo: []
@@ -240,33 +257,27 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       parentTransform: {fileID: 0}
+      OnCooldown: 0
   availableTags:
   - North
   - South
   - West
   - East
+  playerIndex: 0
+  OpponentPlayer: {fileID: 0}
+  hackPanel: {fileID: 0}
+  attackPanel: {fileID: 0}
+  progressFiller: {fileID: 0}
+  hackedWindows: []
+  windowsCooldownFiller: {fileID: 0}
+  interruptCooldownFiller: {fileID: 0}
+  decreaseCooldownFiller: {fileID: 0}
+  statusIcon: {fileID: 0}
+  hackingSprite: {fileID: 21300000, guid: 030a3e885e3a467418deca125c92488b, type: 3}
+  attackingSprite: {fileID: 21300000, guid: d3d44b24e37679a4483c57fcd9184a32, type: 3}
   NorthButton: 119
   SouthButton: 115
   WestButton: 97
   EastButton: 100
   HackWindowButton: 113
   AttackWindowButton: 101
-  gameIsRunning: 0
-  playerIndex: 0
-  hackPanel: {fileID: 0}
-  attackPanel: {fileID: 0}
-  OpponentPlayer: {fileID: 0}
-  pointsNeededToWin: 100
-  currentPoints: 0
-  lightHackPoints: 5
-  mediumHackPoints: 15
-  heavyHackPoints: 30
-  windowsRefreshTime: 0
-  windowsCooldownFiller: {fileID: 0}
-  interruptRefreshTime: 0
-  interruptCooldownFiller: {fileID: 0}
-  decreaseHackTime: 0
-  decreaseCooldownFiller: {fileID: 0}
-  decreaseHackPower: 10
-  progressFiller: {fileID: 0}
-  hackedWindows: []
