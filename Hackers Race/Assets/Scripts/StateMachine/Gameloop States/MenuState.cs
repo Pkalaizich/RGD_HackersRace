@@ -21,7 +21,7 @@ public class MenuState : State
     }
     public override void OnEnterState()
     {
-        inputManager.SetActive(false);
+        //inputManager.SetActive(false);
         playButton.interactable = true;
         creditsPanel.SetActive(false);
         menuPanel.SetActive(true);
@@ -29,7 +29,7 @@ public class MenuState : State
 
     public override void OnExitState()
     {
-        inputManager.SetActive(true);
+        //inputManager.SetActive(true);
     }
 
     public override void OnUpdateState()
