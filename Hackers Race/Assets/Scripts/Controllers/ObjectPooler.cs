@@ -161,5 +161,6 @@ public class ObjectPooler : MonoBehaviour
         var poolContainer = transform.Find(tag);
         toEnqueue.transform.SetParent(poolContainer);
         PoolDictionary[tag].Enqueue(toEnqueue);
+        toEnqueue.transform.localScale = Vector3.one;
     }
 }

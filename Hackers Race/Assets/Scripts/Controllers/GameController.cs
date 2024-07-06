@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public  class GameController : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public  class GameController : MonoBehaviour
     private UnityEvent<int> playerWon = new UnityEvent <int>();
     public UnityEvent<int> OnPlayerWon => playerWon;
 
+    [SerializeField] private List<Image> finalMessage;
+    [SerializeField] private Sprite wonSprite;
+    [SerializeField] private Sprite loseSprite;
+
     private void Start()
     {
         stateController =FindObjectOfType<StateController>();
@@ -29,7 +34,11 @@ public  class GameController : MonoBehaviour
     }
     public void SetUp()
     {
-        foreach(PlayerController controller in playerControllers)
+        for (int i = 0; i < finalMessage.Count; i++)
+        {
+            finalMessage[i].gameObject.SetActive(false);            
+        }
+        foreach (PlayerController controller in playerControllers)
         {
             controller.SetInitialValues();          
         }
@@ -50,9 +59,20 @@ public  class GameController : MonoBehaviour
             foreach (PlayerController controller in playerControllers)
             {
                 controller.GameEnded();
-            }            
-            stateController.NextState();
+            }
+            StartCoroutine(DelayedStateChange());
+            for(int i=0;i<finalMessage.Count;i++)
+            {
+                finalMessage[i].gameObject.SetActive(true);
+                finalMessage[i].sprite = i==winnerIndex? wonSprite : loseSprite;
+            }
         }
     }   
+
+    private IEnumerator DelayedStateChange()
+    {
+        yield return new WaitForSeconds(1.5f);
+        stateController.NextState();
+    }
 }
 

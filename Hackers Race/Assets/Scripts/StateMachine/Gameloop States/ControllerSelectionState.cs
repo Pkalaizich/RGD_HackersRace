@@ -18,6 +18,12 @@ public class ControllerSelectionState : State
     private Coroutine countDownCoroutine;
     public override void OnEnterState()
     {
+        for(int i=0; i<PlayersManager.Instance.INFO.Count;i++)
+        {
+            if (PlayersManager.Instance.INFO[i].playerBehaviour!=null)
+                PlayersManager.Instance.INFO[i].playerBehaviour.DisconnectPlayer();
+        }
+
         PlayersManager.Instance.ChangeCurrentActionMaps(1);
 
         countDownElements.SetActive(false);

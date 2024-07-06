@@ -273,8 +273,8 @@ MonoBehaviour:
   interruptCooldownFiller: {fileID: 0}
   decreaseCooldownFiller: {fileID: 0}
   statusIcon: {fileID: 0}
-  hackingSprite: {fileID: 21300000, guid: 030a3e885e3a467418deca125c92488b, type: 3}
-  attackingSprite: {fileID: 21300000, guid: d3d44b24e37679a4483c57fcd9184a32, type: 3}
+  hackingSprite: {fileID: 21300000, guid: d3d44b24e37679a4483c57fcd9184a32, type: 3}
+  attackingSprite: {fileID: 21300000, guid: 030a3e885e3a467418deca125c92488b, type: 3}
   NorthButton: 119
   SouthButton: 115
   WestButton: 97
