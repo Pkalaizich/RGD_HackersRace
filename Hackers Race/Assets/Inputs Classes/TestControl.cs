@@ -80,15 +80,6 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Destroy"",
-                    ""type"": ""Button"",
-                    ""id"": ""8809cb07-26ca-47ec-81fe-8d03648fedc1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -465,17 +456,6 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                     ""action"": ""ShoulderRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6d517eb3-43dc-49de-a1be-19c3cd0079a9"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Destroy"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -496,6 +476,15 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                     ""name"": ""Accept"",
                     ""type"": ""Button"",
                     ""id"": ""e27c1d93-46f4-41a2-a1b6-848c298b8fb4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Join2ndKeyboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""a2a6ee8b-53f9-4a2f-84cd-48a96ee8f5a3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -568,6 +557,17 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                     ""action"": ""Accept"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d499d8f-7a96-414e-ab5e-065a922daf30"",
+                    ""path"": ""<Keyboard>/numpad5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Join2ndKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -616,11 +616,11 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         m_Gameplay_East = m_Gameplay.FindAction("East", throwIfNotFound: true);
         m_Gameplay_ShoulderLeft = m_Gameplay.FindAction("ShoulderLeft", throwIfNotFound: true);
         m_Gameplay_ShoulderRight = m_Gameplay.FindAction("ShoulderRight", throwIfNotFound: true);
-        m_Gameplay_Destroy = m_Gameplay.FindAction("Destroy", throwIfNotFound: true);
         // CharSelection
         m_CharSelection = asset.FindActionMap("CharSelection", throwIfNotFound: true);
         m_CharSelection_Disconnect = m_CharSelection.FindAction("Disconnect", throwIfNotFound: true);
         m_CharSelection_Accept = m_CharSelection.FindAction("Accept", throwIfNotFound: true);
+        m_CharSelection_Join2ndKeyboard = m_CharSelection.FindAction("Join2ndKeyboard", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -688,7 +688,6 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_East;
     private readonly InputAction m_Gameplay_ShoulderLeft;
     private readonly InputAction m_Gameplay_ShoulderRight;
-    private readonly InputAction m_Gameplay_Destroy;
     public struct GameplayActions
     {
         private @TestControl m_Wrapper;
@@ -699,7 +698,6 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         public InputAction @East => m_Wrapper.m_Gameplay_East;
         public InputAction @ShoulderLeft => m_Wrapper.m_Gameplay_ShoulderLeft;
         public InputAction @ShoulderRight => m_Wrapper.m_Gameplay_ShoulderRight;
-        public InputAction @Destroy => m_Wrapper.m_Gameplay_Destroy;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -727,9 +725,6 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @ShoulderRight.started += instance.OnShoulderRight;
             @ShoulderRight.performed += instance.OnShoulderRight;
             @ShoulderRight.canceled += instance.OnShoulderRight;
-            @Destroy.started += instance.OnDestroy;
-            @Destroy.performed += instance.OnDestroy;
-            @Destroy.canceled += instance.OnDestroy;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -752,9 +747,6 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @ShoulderRight.started -= instance.OnShoulderRight;
             @ShoulderRight.performed -= instance.OnShoulderRight;
             @ShoulderRight.canceled -= instance.OnShoulderRight;
-            @Destroy.started -= instance.OnDestroy;
-            @Destroy.performed -= instance.OnDestroy;
-            @Destroy.canceled -= instance.OnDestroy;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -778,12 +770,14 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
     private List<ICharSelectionActions> m_CharSelectionActionsCallbackInterfaces = new List<ICharSelectionActions>();
     private readonly InputAction m_CharSelection_Disconnect;
     private readonly InputAction m_CharSelection_Accept;
+    private readonly InputAction m_CharSelection_Join2ndKeyboard;
     public struct CharSelectionActions
     {
         private @TestControl m_Wrapper;
         public CharSelectionActions(@TestControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Disconnect => m_Wrapper.m_CharSelection_Disconnect;
         public InputAction @Accept => m_Wrapper.m_CharSelection_Accept;
+        public InputAction @Join2ndKeyboard => m_Wrapper.m_CharSelection_Join2ndKeyboard;
         public InputActionMap Get() { return m_Wrapper.m_CharSelection; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -799,6 +793,9 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @Accept.started += instance.OnAccept;
             @Accept.performed += instance.OnAccept;
             @Accept.canceled += instance.OnAccept;
+            @Join2ndKeyboard.started += instance.OnJoin2ndKeyboard;
+            @Join2ndKeyboard.performed += instance.OnJoin2ndKeyboard;
+            @Join2ndKeyboard.canceled += instance.OnJoin2ndKeyboard;
         }
 
         private void UnregisterCallbacks(ICharSelectionActions instance)
@@ -809,6 +806,9 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @Accept.started -= instance.OnAccept;
             @Accept.performed -= instance.OnAccept;
             @Accept.canceled -= instance.OnAccept;
+            @Join2ndKeyboard.started -= instance.OnJoin2ndKeyboard;
+            @Join2ndKeyboard.performed -= instance.OnJoin2ndKeyboard;
+            @Join2ndKeyboard.canceled -= instance.OnJoin2ndKeyboard;
         }
 
         public void RemoveCallbacks(ICharSelectionActions instance)
@@ -861,11 +861,11 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         void OnEast(InputAction.CallbackContext context);
         void OnShoulderLeft(InputAction.CallbackContext context);
         void OnShoulderRight(InputAction.CallbackContext context);
-        void OnDestroy(InputAction.CallbackContext context);
     }
     public interface ICharSelectionActions
     {
         void OnDisconnect(InputAction.CallbackContext context);
         void OnAccept(InputAction.CallbackContext context);
+        void OnJoin2ndKeyboard(InputAction.CallbackContext context);
     }
 }

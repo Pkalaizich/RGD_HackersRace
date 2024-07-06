@@ -89,6 +89,16 @@ public class ControllerSelectionState : State
         {
             waitingMessages[player].SetActive(false);
             readyMessages[player].SetActive(true);
+            if (PlayersManager.Instance.INFO[player].playerBehaviour.PLAYER_INPUT.currentControlScheme == "Keyboard")
+            {
+                controllerIndicator[player].SetActive(false);
+                keyboardIndicator[player].SetActive(true);
+            }
+            else
+            {
+                controllerIndicator[player].SetActive(true);
+                keyboardIndicator[player].SetActive(false);
+            }
         }
         else
         {

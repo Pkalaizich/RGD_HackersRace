@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
     private PlayerInput playerInput;
     public PlayerInput PLAYER_INPUT=> playerInput;    
-    private PlayerController playerController;
+    private PlayerController playerController;    
 
     private TestControl testControl;
 
@@ -23,15 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
         var index = playerInput.playerIndex;        
         playerController = player.FirstOrDefault(x => x.GetPlayerIndex() == index);
         PlayersManager.Instance.AddPlayer(this, index);
-        if(FindObjectOfType<StateController>().CURRENTSTATE == 1)
-        {
-            EnableActionMap(1);
-        }
-        else
-        {
-            EnableActionMap(0);
-        }
-        
+        StartCoroutine(EnableMapWithDelay());
     }
 
     public void OnButtonPressed(InputAction.CallbackContext context)
@@ -53,5 +45,24 @@ public class PlayerBehaviour : MonoBehaviour
     {
         PlayersManager.Instance.RemovePlayer(playerInput.playerIndex);
         Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        EnableActionMap(0);
+    }
+
+    private IEnumerator EnableMapWithDelay()
+    {
+        EnableActionMap(0);
+        yield return new WaitForSeconds(0.1f);
+        if (FindObjectOfType<StateController>().CURRENTSTATE == 1)
+        {
+            EnableActionMap(1);
+        }
+        else
+        {
+            EnableActionMap(0);
+        }
     }
 }

@@ -13,6 +13,10 @@ public class ButtonIndicator : MonoBehaviour
     [SerializeField] private Color activeColor;
     [SerializeField] private Color inactiveColor;
     [SerializeField] private Color disabledColor;
+
+    [SerializeField] private Sprite activeSprite;
+    [SerializeField] private Sprite inactiveSprite;
+    [SerializeField] private Sprite disabledSprite;
     public string POOL_TAG=>poolTag;
 
     [Header("Icons for different controllers")]
@@ -40,15 +44,19 @@ public class ButtonIndicator : MonoBehaviour
     public void SetButtonStatus(bool status)
     {
         IsActive = status;
-        Color newColor = status? activeColor : inactiveColor;
-        ButtonBack.color= newColor;
+        //Color newColor = status? activeColor : inactiveColor;
+        //ButtonBack.color= newColor;
+
+        ButtonBack.sprite = status ? activeSprite : inactiveSprite;
     }
 
     public void SetButonEnabled(bool enabled, float cooldownTime)
     {
         IsEnabled= enabled;
-        Color newColor = enabled ? inactiveColor : disabledColor;
-        ButtonBack.color = newColor;
+        //Color newColor = enabled ? inactiveColor : disabledColor;
+        //ButtonBack.color = newColor;
+
+        ButtonBack.sprite = enabled ? inactiveSprite : disabledSprite;
         if (!enabled)
         {
             StartCoroutine(ReactivateButton(cooldownTime));

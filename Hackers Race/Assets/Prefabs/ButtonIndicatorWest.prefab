@@ -8,14 +8,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 724518206541386463, guid: fef86b7c002083844ae3253eb6a92e2c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e3170d953189cc34aac9ac84637904ac, type: 3}
     - target: {fileID: 3356095896345977021, guid: fef86b7c002083844ae3253eb6a92e2c, type: 3}
       propertyPath: poolTag
       value: West
       objectReference: {fileID: 0}
     - target: {fileID: 3356095896345977021, guid: fef86b7c002083844ae3253eb6a92e2c, type: 3}
+      propertyPath: activeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 96bb35618de153040bea4125d9769c7c, type: 3}
+    - target: {fileID: 3356095896345977021, guid: fef86b7c002083844ae3253eb6a92e2c, type: 3}
       propertyPath: assignedButton
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3356095896345977021, guid: fef86b7c002083844ae3253eb6a92e2c, type: 3}
+      propertyPath: disabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb9fa2452a61e8a45b033218fc968379, type: 3}
+    - target: {fileID: 3356095896345977021, guid: fef86b7c002083844ae3253eb6a92e2c, type: 3}
+      propertyPath: inactiveSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e3170d953189cc34aac9ac84637904ac, type: 3}
     - target: {fileID: 4043188405079394584, guid: fef86b7c002083844ae3253eb6a92e2c, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068

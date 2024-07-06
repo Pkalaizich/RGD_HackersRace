@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4043188405079394584
 RectTransform:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: ffcb4c5b796089c4d90d5cd054c7d4a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -171,6 +171,9 @@ MonoBehaviour:
   activeColor: {r: 0, g: 0.98039216, b: 0.5803922, a: 1}
   inactiveColor: {r: 1, g: 1, b: 1, a: 1}
   disabledColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  activeSprite: {fileID: 21300000, guid: a5dcb662e378d744f8364cc6622c0167, type: 3}
+  inactiveSprite: {fileID: 21300000, guid: ffcb4c5b796089c4d90d5cd054c7d4a3, type: 3}
+  disabledSprite: {fileID: 21300000, guid: 0f5dd5d5c99a9c340815b9a7156a0f95, type: 3}
   xboxIcon: {fileID: 0}
   psIcon: {fileID: 0}
   switchIcon: {fileID: 0}

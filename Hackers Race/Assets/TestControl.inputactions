@@ -58,15 +58,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Destroy",
-                    "type": "Button",
-                    "id": "8809cb07-26ca-47ec-81fe-8d03648fedc1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -443,17 +434,6 @@
                     "action": "ShoulderRight",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6d517eb3-43dc-49de-a1be-19c3cd0079a9",
-                    "path": "<Gamepad>/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Destroy",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -474,6 +454,15 @@
                     "name": "Accept",
                     "type": "Button",
                     "id": "e27c1d93-46f4-41a2-a1b6-848c298b8fb4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Join2ndKeyboard",
+                    "type": "Button",
+                    "id": "a2a6ee8b-53f9-4a2f-84cd-48a96ee8f5a3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -544,6 +533,17 @@
                     "processors": "",
                     "groups": "NSW Wired",
                     "action": "Accept",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4d499d8f-7a96-414e-ab5e-065a922daf30",
+                    "path": "<Keyboard>/numpad5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Join2ndKeyboard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

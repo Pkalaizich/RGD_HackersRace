@@ -159,39 +159,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //    if(gameIsRunning)
-    //    {
-    //        if(Input.GetKeyDown(NorthButton))
-    //        {
-    //            CheckButton(StaticValues.AssignedButtons.North);
-    //        }
-    //        if (Input.GetKeyDown(SouthButton))
-    //        {
-    //            CheckButton(StaticValues.AssignedButtons.South);
-    //        }
-    //        if (Input.GetKeyDown(WestButton))
-    //        {
-    //            CheckButton(StaticValues.AssignedButtons.West);
-    //        }
-    //        if (Input.GetKeyDown(EastButton))
-    //        {
-    //            CheckButton(StaticValues.AssignedButtons.East);
-    //        }
-    //        if (Input.GetKeyDown(HackWindowButton)&& !isInHackingMode)
-    //        {
-    //            ChangeMode(true);
-    //            return;
-    //        }
-    //        if (Input.GetKeyDown(AttackWindowButton) && isInHackingMode)
-    //        {
-    //            ChangeMode(false);
-    //            return;
-    //        }
-    //    }
-    //}
-
     public void SetInitialValues()
     {
         # region close windows if open from last game
