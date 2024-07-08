@@ -15,6 +15,8 @@ public class ControllerSelectionState : State
     [SerializeField] private GameObject countDownElements;
     [SerializeField] private TextMeshProUGUI countdownTMP;
 
+    [SerializeField] private GameObject secondPlayerKeyboardMessage;
+
     private Coroutine countDownCoroutine;
     public override void OnEnterState()
     {
@@ -79,12 +81,26 @@ public class ControllerSelectionState : State
         else
         {
             SetPlayerStatus(playerToCheck, false);
+            if(playerToCheck== 0)
+            {
+                CheckPlayerStatus(1);
+            }
             if (countDownCoroutine != null)
             {
                 StopCoroutine(countDownCoroutine);
                 countDownCoroutine = null;
                 countDownElements.SetActive(false);
             }
+        }
+        if(PlayersManager.Instance.INFO[0].playerBehaviour!=null
+            && PlayersManager.Instance.INFO[0].playerBehaviour.PLAYER_INPUT.currentControlScheme == "Keyboard" 
+            && PlayersManager.Instance.INFO[1].joined==false)
+        {
+            secondPlayerKeyboardMessage.gameObject.SetActive(true);
+        }
+        else
+        {
+            secondPlayerKeyboardMessage.gameObject.SetActive(false);
         }
     }
     

@@ -52,14 +52,42 @@ public class PlayersManager : MonoBehaviour
 
     public void AddPlayer(PlayerBehaviour newbehaviour, int playerIndex)
     {
-        playersInfo[playerIndex].playerBehaviour = newbehaviour;
-        playersInfo[playerIndex].joined = true;
+        if (playersInfo[0].playerBehaviour!=null&&
+            playersInfo[0].playerBehaviour.PLAYER_INPUT.currentControlScheme=="Keyboard" && playerIndex==1)
+        {
+            if(playersInfo[1].playerBehaviour != null &&
+                playersInfo[1].playerBehaviour.PLAYER_INPUT.currentControlScheme == "Keyboard")
+            {
+                newbehaviour.DestroyPlayer();
+            }
+            else
+            {
+                playersInfo[playerIndex].playerBehaviour = newbehaviour;
+                playersInfo[playerIndex].joined = true;
 
-        OnPlayerJoined?.Invoke(playerIndex);
+                OnPlayerJoined?.Invoke(playerIndex);
+            }
+        }
+        else
+        {
+            playersInfo[playerIndex].playerBehaviour = newbehaviour;
+            playersInfo[playerIndex].joined = true;
+
+            OnPlayerJoined?.Invoke(playerIndex);
+        }        
     }
 
     public void RemovePlayer(int playerIndex)
     {
+        if(playerIndex==0
+            && playersInfo[0].playerBehaviour!=null
+            && playersInfo[0].playerBehaviour.PLAYER_INPUT.currentControlScheme == "Keyboard"
+            && playersInfo[1].playerBehaviour != null
+            && playersInfo[1].playerBehaviour.PLAYER_INPUT.currentControlScheme == "Keyboard")
+        {
+            playersInfo[1].playerBehaviour = null;
+            playersInfo[1].joined = false;
+        }
         playersInfo[playerIndex].playerBehaviour = null;
         playersInfo[playerIndex].joined = false;
 

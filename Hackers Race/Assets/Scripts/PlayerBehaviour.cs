@@ -4,12 +4,14 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System;
 
 public class PlayerBehaviour : MonoBehaviour
 {
     private PlayerInput playerInput;
     public PlayerInput PLAYER_INPUT=> playerInput;    
-    private PlayerController playerController;    
+    private PlayerController playerController;
+    private PlayerController player2Controller;
 
     private TestControl testControl;
 
@@ -31,7 +33,26 @@ public class PlayerBehaviour : MonoBehaviour
         if(context.performed)
         {
             playerController.ButtonPressed(context);
+            if(player2Controller!= null)
+            {
+                player2Controller.ButtonP2Pressed(context);
+            }
         }        
+    }
+
+    public void JoinSecondKeyboard(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            if(PlayersManager.Instance.INFO[0].playerBehaviour!=null
+                && PlayersManager.Instance.INFO[0].playerBehaviour.PLAYER_INPUT.currentControlScheme == "Keyboard" 
+                && PlayersManager.Instance.INFO[1].playerBehaviour == null)
+            {
+                PlayersManager.Instance.AddPlayer(this, 1);
+                var player = FindObjectsOfType<PlayerController>();
+                player2Controller = player.FirstOrDefault(x => x.GetPlayerIndex() == 1);
+            }                        
+        }
     }
 
     public void EnableActionMap(int mapToActivate)
@@ -44,6 +65,11 @@ public class PlayerBehaviour : MonoBehaviour
     public void DisconnectPlayer()
     {
         PlayersManager.Instance.RemovePlayer(playerInput.playerIndex);
+        DestroyPlayer();
+    }
+
+    public void DestroyPlayer()
+    {
         Destroy(this.gameObject);
     }
 

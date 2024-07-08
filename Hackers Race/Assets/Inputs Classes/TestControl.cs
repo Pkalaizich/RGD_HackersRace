@@ -480,6 +480,15 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""JoinP2"",
+                    ""type"": ""Button"",
+                    ""id"": ""692678b9-a1e4-45e1-bd9a-81547d63b0f3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -546,6 +555,342 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""NSW Wired"",
                     ""action"": ""Accept"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abe78fc9-05ef-4b37-9dd1-c09ba7ffc6b1"",
+                    ""path"": ""<Keyboard>/numpad5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0191e624-e726-4abb-8a41-bc90ae10c40d"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Gameplay2Keyboard"",
+            ""id"": ""b1a5440f-dcfd-474f-89b3-150d58567318"",
+            ""actions"": [
+                {
+                    ""name"": ""ShoulderRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""230f3d66-a704-4cea-a006-7eef1513cbee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShoulderRightP2"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f994932-6496-404b-8960-8da4f4496a78"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShoulderLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8561466-6c6b-41e3-93a2-4fb6a71b24b3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShoulderLeftP2"",
+                    ""type"": ""Button"",
+                    ""id"": ""de9456e2-e38e-48dc-b2a6-e28759e48ad9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""East"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed4062cf-3609-4e36-90e6-e6581f33e1a6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""EastP2"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c1bc539-1fac-4076-ad05-bc78c3d33afc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""West"",
+                    ""type"": ""Button"",
+                    ""id"": ""26a244c3-0498-43a8-8c9f-e5ef6f24bbf7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""WestP2"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c382713-1c6f-4e1a-9aed-9b1c5b4c044c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""South"",
+                    ""type"": ""Button"",
+                    ""id"": ""c3ebfd8f-f35f-4ac0-86e2-c65bbb0e2022"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SouthP2"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ab05636-0198-4fa5-b2d0-04668daa01b1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""North"",
+                    ""type"": ""Button"",
+                    ""id"": ""49affb94-d095-4b8d-b33e-6e6d643dc3fc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""NorthP2"",
+                    ""type"": ""Button"",
+                    ""id"": ""efc3ed56-a915-482a-b69c-efe5a0807801"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""debd1e6a-a3d0-4345-afaf-b2a11067ee81"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""North"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a34208b-2ddd-45a4-a0cb-9da2cc4e3cca"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""South"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f524aaf-6251-49fb-a872-f1146b984bbf"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""West"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8edb2a0b-86de-4a3e-942c-494cec52103e"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""East"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e812d3dd-8f00-4c47-a2ec-0a40dc60345e"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ShoulderLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91285705-fd87-4a4c-8ad0-dc0df66aea81"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ShoulderRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""299d1ed0-4097-4784-b639-37c416c5f032"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""NorthP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b9571f1-6788-4cf0-b820-4d499d057175"",
+                    ""path"": ""<Keyboard>/numpad8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""NorthP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b35bd1df-9e1a-4298-b998-d94e996c8e48"",
+                    ""path"": ""<Keyboard>/numpad2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""SouthP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""612bc1b6-8d37-4e6f-8115-755cb51bff8a"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""SouthP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2a5ebfb-e7ed-44de-aea4-1c1c80fdb932"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""WestP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b872be5-461c-46ad-8c4a-956d5ae83949"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""WestP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d551d0e-24a1-4ed7-b003-ac4404461428"",
+                    ""path"": ""<Keyboard>/numpad6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""EastP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""540fa74b-b733-44cc-a79b-d616bf31cd8a"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""EastP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ad0cd82-5d0b-4c09-a3f4-3556f53aba7f"",
+                    ""path"": ""<Keyboard>/numpad7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ShoulderLeftP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""354c0302-6eec-4733-9a7e-6e09ee675f01"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ShoulderLeftP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e6be15f-550a-4312-855f-ab29bc5f9895"",
+                    ""path"": ""<Keyboard>/numpad9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ShoulderRightP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0dd9a185-59b3-4b1f-8022-0ea74e9fbc41"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ShoulderRightP2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -650,6 +995,21 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         m_CharSelection = asset.FindActionMap("CharSelection", throwIfNotFound: true);
         m_CharSelection_Disconnect = m_CharSelection.FindAction("Disconnect", throwIfNotFound: true);
         m_CharSelection_Accept = m_CharSelection.FindAction("Accept", throwIfNotFound: true);
+        m_CharSelection_JoinP2 = m_CharSelection.FindAction("JoinP2", throwIfNotFound: true);
+        // Gameplay2Keyboard
+        m_Gameplay2Keyboard = asset.FindActionMap("Gameplay2Keyboard", throwIfNotFound: true);
+        m_Gameplay2Keyboard_ShoulderRight = m_Gameplay2Keyboard.FindAction("ShoulderRight", throwIfNotFound: true);
+        m_Gameplay2Keyboard_ShoulderRightP2 = m_Gameplay2Keyboard.FindAction("ShoulderRightP2", throwIfNotFound: true);
+        m_Gameplay2Keyboard_ShoulderLeft = m_Gameplay2Keyboard.FindAction("ShoulderLeft", throwIfNotFound: true);
+        m_Gameplay2Keyboard_ShoulderLeftP2 = m_Gameplay2Keyboard.FindAction("ShoulderLeftP2", throwIfNotFound: true);
+        m_Gameplay2Keyboard_East = m_Gameplay2Keyboard.FindAction("East", throwIfNotFound: true);
+        m_Gameplay2Keyboard_EastP2 = m_Gameplay2Keyboard.FindAction("EastP2", throwIfNotFound: true);
+        m_Gameplay2Keyboard_West = m_Gameplay2Keyboard.FindAction("West", throwIfNotFound: true);
+        m_Gameplay2Keyboard_WestP2 = m_Gameplay2Keyboard.FindAction("WestP2", throwIfNotFound: true);
+        m_Gameplay2Keyboard_South = m_Gameplay2Keyboard.FindAction("South", throwIfNotFound: true);
+        m_Gameplay2Keyboard_SouthP2 = m_Gameplay2Keyboard.FindAction("SouthP2", throwIfNotFound: true);
+        m_Gameplay2Keyboard_North = m_Gameplay2Keyboard.FindAction("North", throwIfNotFound: true);
+        m_Gameplay2Keyboard_NorthP2 = m_Gameplay2Keyboard.FindAction("NorthP2", throwIfNotFound: true);
         // Join
         m_Join = asset.FindActionMap("Join", throwIfNotFound: true);
         m_Join_Join = m_Join.FindAction("Join", throwIfNotFound: true);
@@ -802,12 +1162,14 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
     private List<ICharSelectionActions> m_CharSelectionActionsCallbackInterfaces = new List<ICharSelectionActions>();
     private readonly InputAction m_CharSelection_Disconnect;
     private readonly InputAction m_CharSelection_Accept;
+    private readonly InputAction m_CharSelection_JoinP2;
     public struct CharSelectionActions
     {
         private @TestControl m_Wrapper;
         public CharSelectionActions(@TestControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Disconnect => m_Wrapper.m_CharSelection_Disconnect;
         public InputAction @Accept => m_Wrapper.m_CharSelection_Accept;
+        public InputAction @JoinP2 => m_Wrapper.m_CharSelection_JoinP2;
         public InputActionMap Get() { return m_Wrapper.m_CharSelection; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -823,6 +1185,9 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @Accept.started += instance.OnAccept;
             @Accept.performed += instance.OnAccept;
             @Accept.canceled += instance.OnAccept;
+            @JoinP2.started += instance.OnJoinP2;
+            @JoinP2.performed += instance.OnJoinP2;
+            @JoinP2.canceled += instance.OnJoinP2;
         }
 
         private void UnregisterCallbacks(ICharSelectionActions instance)
@@ -833,6 +1198,9 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @Accept.started -= instance.OnAccept;
             @Accept.performed -= instance.OnAccept;
             @Accept.canceled -= instance.OnAccept;
+            @JoinP2.started -= instance.OnJoinP2;
+            @JoinP2.performed -= instance.OnJoinP2;
+            @JoinP2.canceled -= instance.OnJoinP2;
         }
 
         public void RemoveCallbacks(ICharSelectionActions instance)
@@ -850,6 +1218,140 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         }
     }
     public CharSelectionActions @CharSelection => new CharSelectionActions(this);
+
+    // Gameplay2Keyboard
+    private readonly InputActionMap m_Gameplay2Keyboard;
+    private List<IGameplay2KeyboardActions> m_Gameplay2KeyboardActionsCallbackInterfaces = new List<IGameplay2KeyboardActions>();
+    private readonly InputAction m_Gameplay2Keyboard_ShoulderRight;
+    private readonly InputAction m_Gameplay2Keyboard_ShoulderRightP2;
+    private readonly InputAction m_Gameplay2Keyboard_ShoulderLeft;
+    private readonly InputAction m_Gameplay2Keyboard_ShoulderLeftP2;
+    private readonly InputAction m_Gameplay2Keyboard_East;
+    private readonly InputAction m_Gameplay2Keyboard_EastP2;
+    private readonly InputAction m_Gameplay2Keyboard_West;
+    private readonly InputAction m_Gameplay2Keyboard_WestP2;
+    private readonly InputAction m_Gameplay2Keyboard_South;
+    private readonly InputAction m_Gameplay2Keyboard_SouthP2;
+    private readonly InputAction m_Gameplay2Keyboard_North;
+    private readonly InputAction m_Gameplay2Keyboard_NorthP2;
+    public struct Gameplay2KeyboardActions
+    {
+        private @TestControl m_Wrapper;
+        public Gameplay2KeyboardActions(@TestControl wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ShoulderRight => m_Wrapper.m_Gameplay2Keyboard_ShoulderRight;
+        public InputAction @ShoulderRightP2 => m_Wrapper.m_Gameplay2Keyboard_ShoulderRightP2;
+        public InputAction @ShoulderLeft => m_Wrapper.m_Gameplay2Keyboard_ShoulderLeft;
+        public InputAction @ShoulderLeftP2 => m_Wrapper.m_Gameplay2Keyboard_ShoulderLeftP2;
+        public InputAction @East => m_Wrapper.m_Gameplay2Keyboard_East;
+        public InputAction @EastP2 => m_Wrapper.m_Gameplay2Keyboard_EastP2;
+        public InputAction @West => m_Wrapper.m_Gameplay2Keyboard_West;
+        public InputAction @WestP2 => m_Wrapper.m_Gameplay2Keyboard_WestP2;
+        public InputAction @South => m_Wrapper.m_Gameplay2Keyboard_South;
+        public InputAction @SouthP2 => m_Wrapper.m_Gameplay2Keyboard_SouthP2;
+        public InputAction @North => m_Wrapper.m_Gameplay2Keyboard_North;
+        public InputAction @NorthP2 => m_Wrapper.m_Gameplay2Keyboard_NorthP2;
+        public InputActionMap Get() { return m_Wrapper.m_Gameplay2Keyboard; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Gameplay2KeyboardActions set) { return set.Get(); }
+        public void AddCallbacks(IGameplay2KeyboardActions instance)
+        {
+            if (instance == null || m_Wrapper.m_Gameplay2KeyboardActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Gameplay2KeyboardActionsCallbackInterfaces.Add(instance);
+            @ShoulderRight.started += instance.OnShoulderRight;
+            @ShoulderRight.performed += instance.OnShoulderRight;
+            @ShoulderRight.canceled += instance.OnShoulderRight;
+            @ShoulderRightP2.started += instance.OnShoulderRightP2;
+            @ShoulderRightP2.performed += instance.OnShoulderRightP2;
+            @ShoulderRightP2.canceled += instance.OnShoulderRightP2;
+            @ShoulderLeft.started += instance.OnShoulderLeft;
+            @ShoulderLeft.performed += instance.OnShoulderLeft;
+            @ShoulderLeft.canceled += instance.OnShoulderLeft;
+            @ShoulderLeftP2.started += instance.OnShoulderLeftP2;
+            @ShoulderLeftP2.performed += instance.OnShoulderLeftP2;
+            @ShoulderLeftP2.canceled += instance.OnShoulderLeftP2;
+            @East.started += instance.OnEast;
+            @East.performed += instance.OnEast;
+            @East.canceled += instance.OnEast;
+            @EastP2.started += instance.OnEastP2;
+            @EastP2.performed += instance.OnEastP2;
+            @EastP2.canceled += instance.OnEastP2;
+            @West.started += instance.OnWest;
+            @West.performed += instance.OnWest;
+            @West.canceled += instance.OnWest;
+            @WestP2.started += instance.OnWestP2;
+            @WestP2.performed += instance.OnWestP2;
+            @WestP2.canceled += instance.OnWestP2;
+            @South.started += instance.OnSouth;
+            @South.performed += instance.OnSouth;
+            @South.canceled += instance.OnSouth;
+            @SouthP2.started += instance.OnSouthP2;
+            @SouthP2.performed += instance.OnSouthP2;
+            @SouthP2.canceled += instance.OnSouthP2;
+            @North.started += instance.OnNorth;
+            @North.performed += instance.OnNorth;
+            @North.canceled += instance.OnNorth;
+            @NorthP2.started += instance.OnNorthP2;
+            @NorthP2.performed += instance.OnNorthP2;
+            @NorthP2.canceled += instance.OnNorthP2;
+        }
+
+        private void UnregisterCallbacks(IGameplay2KeyboardActions instance)
+        {
+            @ShoulderRight.started -= instance.OnShoulderRight;
+            @ShoulderRight.performed -= instance.OnShoulderRight;
+            @ShoulderRight.canceled -= instance.OnShoulderRight;
+            @ShoulderRightP2.started -= instance.OnShoulderRightP2;
+            @ShoulderRightP2.performed -= instance.OnShoulderRightP2;
+            @ShoulderRightP2.canceled -= instance.OnShoulderRightP2;
+            @ShoulderLeft.started -= instance.OnShoulderLeft;
+            @ShoulderLeft.performed -= instance.OnShoulderLeft;
+            @ShoulderLeft.canceled -= instance.OnShoulderLeft;
+            @ShoulderLeftP2.started -= instance.OnShoulderLeftP2;
+            @ShoulderLeftP2.performed -= instance.OnShoulderLeftP2;
+            @ShoulderLeftP2.canceled -= instance.OnShoulderLeftP2;
+            @East.started -= instance.OnEast;
+            @East.performed -= instance.OnEast;
+            @East.canceled -= instance.OnEast;
+            @EastP2.started -= instance.OnEastP2;
+            @EastP2.performed -= instance.OnEastP2;
+            @EastP2.canceled -= instance.OnEastP2;
+            @West.started -= instance.OnWest;
+            @West.performed -= instance.OnWest;
+            @West.canceled -= instance.OnWest;
+            @WestP2.started -= instance.OnWestP2;
+            @WestP2.performed -= instance.OnWestP2;
+            @WestP2.canceled -= instance.OnWestP2;
+            @South.started -= instance.OnSouth;
+            @South.performed -= instance.OnSouth;
+            @South.canceled -= instance.OnSouth;
+            @SouthP2.started -= instance.OnSouthP2;
+            @SouthP2.performed -= instance.OnSouthP2;
+            @SouthP2.canceled -= instance.OnSouthP2;
+            @North.started -= instance.OnNorth;
+            @North.performed -= instance.OnNorth;
+            @North.canceled -= instance.OnNorth;
+            @NorthP2.started -= instance.OnNorthP2;
+            @NorthP2.performed -= instance.OnNorthP2;
+            @NorthP2.canceled -= instance.OnNorthP2;
+        }
+
+        public void RemoveCallbacks(IGameplay2KeyboardActions instance)
+        {
+            if (m_Wrapper.m_Gameplay2KeyboardActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGameplay2KeyboardActions instance)
+        {
+            foreach (var item in m_Wrapper.m_Gameplay2KeyboardActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Gameplay2KeyboardActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Gameplay2KeyboardActions @Gameplay2Keyboard => new Gameplay2KeyboardActions(this);
 
     // Join
     private readonly InputActionMap m_Join;
@@ -936,6 +1438,22 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
     {
         void OnDisconnect(InputAction.CallbackContext context);
         void OnAccept(InputAction.CallbackContext context);
+        void OnJoinP2(InputAction.CallbackContext context);
+    }
+    public interface IGameplay2KeyboardActions
+    {
+        void OnShoulderRight(InputAction.CallbackContext context);
+        void OnShoulderRightP2(InputAction.CallbackContext context);
+        void OnShoulderLeft(InputAction.CallbackContext context);
+        void OnShoulderLeftP2(InputAction.CallbackContext context);
+        void OnEast(InputAction.CallbackContext context);
+        void OnEastP2(InputAction.CallbackContext context);
+        void OnWest(InputAction.CallbackContext context);
+        void OnWestP2(InputAction.CallbackContext context);
+        void OnSouth(InputAction.CallbackContext context);
+        void OnSouthP2(InputAction.CallbackContext context);
+        void OnNorth(InputAction.CallbackContext context);
+        void OnNorthP2(InputAction.CallbackContext context);
     }
     public interface IJoinActions
     {

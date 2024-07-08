@@ -168,6 +168,37 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ButtonP2Pressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (context.action.name == playerTestActions.Gameplay2Keyboard.NorthP2.name)
+            {
+                CheckButton(StaticValues.AssignedButtons.North);
+            }
+            if (context.action.name == playerTestActions.Gameplay2Keyboard.SouthP2.name)
+            {
+                CheckButton(StaticValues.AssignedButtons.South);
+            }
+            if (context.action.name == playerTestActions.Gameplay2Keyboard.WestP2.name)
+            {
+                CheckButton(StaticValues.AssignedButtons.West);
+            }
+            if (context.action.name == playerTestActions.Gameplay2Keyboard.EastP2.name)
+            {
+                CheckButton(StaticValues.AssignedButtons.East);
+            }
+            if (context.action.name == playerTestActions.Gameplay2Keyboard.ShoulderLeftP2.name && !isInHackingMode)
+            {
+                ChangeMode(true);
+            }
+            if (context.action.name == playerTestActions.Gameplay2Keyboard.ShoulderRightP2.name && isInHackingMode)
+            {
+                ChangeMode(false);
+            }
+        }
+    }
+
     public void SetInitialValues()
     {
         # region close windows if open from last game
