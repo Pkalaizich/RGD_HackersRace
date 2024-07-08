@@ -8,6 +8,7 @@ public class ResultState : State
 {
     [SerializeField] private Button toMenuButton;
     [SerializeField] private TextMeshProUGUI winner;
+    [SerializeField] private AudioClip menuMusic;
     private void Start()
     {
         toMenuButton.onClick.AddListener(() =>
@@ -18,6 +19,7 @@ public class ResultState : State
     }
     public override void OnEnterState()
     {
+        AudioManager.instance.PlayBGMusic(menuMusic, true, 0, 0.7f);
         toMenuButton.interactable = true;
         winner.text = "WINNER IS PLAYER " + (FindObjectOfType<GameController>().WINNER+1).ToString();
     }

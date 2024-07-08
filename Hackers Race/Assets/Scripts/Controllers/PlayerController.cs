@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using DG.Tweening;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,7 +26,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Image statusIcon;
     [SerializeField] private Sprite hackingSprite;
     [SerializeField] private Sprite attackingSprite;
+    [SerializeField] private Image L1Icon;
+    [SerializeField] private Image R1Icon;
+    [SerializeField] private Sprite JoyL1sprite;
+    [SerializeField] private Sprite JoyR1Sprite;
+    [SerializeField] private Sprite KeyL1sprite;
+    [SerializeField] private Sprite KeyR1Sprite;
 
+    [SerializeField] List<TextMeshProUGUI> hacksNames;
+    [SerializeField] List<TextMeshProUGUI> attackNames;
 
     #region private variables
     private Combo activeCombo = null;
@@ -172,6 +181,17 @@ public class PlayerController : MonoBehaviour
         #endregion
 
 
+        if (PlayersManager.Instance.INFO[playerIndex].playerBehaviour.PLAYER_INPUT.currentControlScheme == "Keyboard")
+        {
+            R1Icon.sprite = KeyR1Sprite;
+            L1Icon.sprite = KeyL1sprite;
+        }
+        else
+        {
+            R1Icon.sprite = JoyR1Sprite;
+            L1Icon.sprite = JoyL1sprite;
+        }
+
         activeCombo = null;
         previousCombo= null;
         
@@ -192,6 +212,8 @@ public class PlayerController : MonoBehaviour
     {
         if(gameIsRunning)
         {
+            int audioIndex = Random.Range(5, 7);
+            AudioManager.instance.PlaySound("KeySound" + audioIndex);
             if (activeCombo == null)
             {
                 int comboTypeIndex = isInHackingMode ? 0 : 1;
@@ -221,6 +243,7 @@ public class PlayerController : MonoBehaviour
                         currentComboButtonIndex++;
                         if (activeCombo.ComboCompleted())
                         {
+                            AudioManager.instance.PlaySound("ComboCompleted");
                             currentComboButtonIndex = 0;
                             RefreshCombo(activeCombo);
                             activeCombo.OnComboCompleted?.Invoke(activeCombo.ComboIndex);
@@ -359,10 +382,20 @@ public class PlayerController : MonoBehaviour
             RefreshCombo(combo);
         }
         activeCombo = playerCombos[2].AvailableCombos[0];
+        StartCoroutine(ErrorAudios());
         Sequence windowsSequence = DOTween.Sequence();
         windowsSequence.Append(hackedWindows[2].DOFade(1, 0.1f))
             .Append(hackedWindows[1].DOFade(1, 0.1f))
             .Append(hackedWindows[0].DOFade(1, 0.1f)).Play();
+    }
+
+    private IEnumerator ErrorAudios()
+    {
+        for(int i =0;i<3;i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            AudioManager.instance.PlaySound("Error");
+        }        
     }
 
     public void CloseWindow()
@@ -417,13 +450,19 @@ public class PlayerController : MonoBehaviour
                 decreaseCooldownFiller.fillAmount = 0;
             });
         }
+
+        Color original = attackNames[attackUsed].color;
+        Sequence colorSequence = DOTween.Sequence();
+        colorSequence.Append(attackNames[attackUsed].DOColor(Color.white, 0.2f))
+            .Append(attackNames[attackUsed].DOColor(Color.black, 0.2f))
+            .Append(attackNames[attackUsed].DOColor(original, 0.2f)).SetLoops(2).Play();
     }
 
     public void HackPerformed(int hackUsed)
     {
         if(hackUsed ==0)
         {
-            ModifyHackProgress(lightHackPoints);
+            ModifyHackProgress(lightHackPoints);            
         }
         if (hackUsed == 1)
         {
@@ -433,6 +472,13 @@ public class PlayerController : MonoBehaviour
         {
             ModifyHackProgress(heavyHackPoints);
         }
+
+        Color original = hacksNames[hackUsed].color;
+        Sequence colorSequence = DOTween.Sequence();
+        colorSequence.Append(hacksNames[hackUsed].DOColor(Color.white, 0.2f))
+            .Append(hacksNames[hackUsed].DOColor(Color.black,0.2f))
+            .Append(hacksNames[hackUsed].DOColor(original, 0.2f)).SetLoops(2).Play();
+
     }
     #endregion
 

@@ -1033,6 +1033,7 @@ GameObject:
   - component: {fileID: 8226915534208827852}
   - component: {fileID: 1970682166782066080}
   - component: {fileID: 8735721485178064354}
+  - component: {fileID: 4837302738498098398}
   m_Layer: 5
   m_Name: IconLeft
   m_TagString: Untagged
@@ -1098,6 +1099,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &4837302738498098398
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501084170157992359}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89f0d5f0b00e215438900eb9a3eff9ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4721923382089768974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1591787456, guid: 790b1f8f6dba5e6428afe15a01516a8f, type: 3}
+  m_Sprite: {fileID: 2085347168, guid: 790b1f8f6dba5e6428afe15a01516a8f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2008,7 +2030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -584880170, guid: 790b1f8f6dba5e6428afe15a01516a8f, type: 3}
+  m_Sprite: {fileID: -1908178419, guid: 443cf5e6d9e70d546ad4f63a81ff5bb4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

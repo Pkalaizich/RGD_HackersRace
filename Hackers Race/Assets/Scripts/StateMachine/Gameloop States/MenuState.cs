@@ -11,6 +11,8 @@ public class MenuState : State
 
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject creditsPanel;
+
+    [SerializeField] private AudioClip menuMusic;
     private void Start()
     {
         playButton.onClick.AddListener(()=>
@@ -21,6 +23,7 @@ public class MenuState : State
     }
     public override void OnEnterState()
     {
+        AudioManager.instance.PlayBGMusic(menuMusic,true,0,0.7f);
         //inputManager.SetActive(false);
         playButton.interactable = true;
         creditsPanel.SetActive(false);

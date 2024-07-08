@@ -458,15 +458,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Join2ndKeyboard",
-                    "type": "Button",
-                    "id": "a2a6ee8b-53f9-4a2f-84cd-48a96ee8f5a3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -535,15 +526,54 @@
                     "action": "Accept",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Join",
+            "id": "16f75766-5bff-499d-a26c-5fb5936792b2",
+            "actions": [
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "1ed74552-7dda-4911-91fe-b5fec0d83d3d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "25ca0a04-4c40-44cd-83e7-82d7a6dc91b3",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4d499d8f-7a96-414e-ab5e-065a922daf30",
-                    "path": "<Keyboard>/numpad5",
+                    "id": "78c665e8-ee07-4f51-ac67-8be0fc8aa7d5",
+                    "path": "<HID::PowerA NSW wired controller>/button13",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Join2ndKeyboard",
+                    "groups": "NSW Wired",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2fb2615-1c3b-483e-aaf8-5d4d67afddc8",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

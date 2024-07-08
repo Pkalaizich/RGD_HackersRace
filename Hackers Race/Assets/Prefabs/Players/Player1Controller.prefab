@@ -275,6 +275,12 @@ MonoBehaviour:
   statusIcon: {fileID: 0}
   hackingSprite: {fileID: 21300000, guid: d3d44b24e37679a4483c57fcd9184a32, type: 3}
   attackingSprite: {fileID: 21300000, guid: 030a3e885e3a467418deca125c92488b, type: 3}
+  L1Icon: {fileID: 0}
+  R1Icon: {fileID: 0}
+  JoyL1sprite: {fileID: -1908178419, guid: 443cf5e6d9e70d546ad4f63a81ff5bb4, type: 3}
+  JoyR1Sprite: {fileID: 2128359084, guid: 443cf5e6d9e70d546ad4f63a81ff5bb4, type: 3}
+  KeyL1sprite: {fileID: 1180805635, guid: 443cf5e6d9e70d546ad4f63a81ff5bb4, type: 3}
+  KeyR1Sprite: {fileID: -8869612, guid: 443cf5e6d9e70d546ad4f63a81ff5bb4, type: 3}
   NorthButton: 119
   SouthButton: 115
   WestButton: 97

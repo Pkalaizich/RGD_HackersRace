@@ -480,15 +480,6 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Join2ndKeyboard"",
-                    ""type"": ""Button"",
-                    ""id"": ""a2a6ee8b-53f9-4a2f-84cd-48a96ee8f5a3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -557,15 +548,54 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
                     ""action"": ""Accept"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Join"",
+            ""id"": ""16f75766-5bff-499d-a26c-5fb5936792b2"",
+            ""actions"": [
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ed74552-7dda-4911-91fe-b5fec0d83d3d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""25ca0a04-4c40-44cd-83e7-82d7a6dc91b3"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4d499d8f-7a96-414e-ab5e-065a922daf30"",
-                    ""path"": ""<Keyboard>/numpad5"",
+                    ""id"": ""78c665e8-ee07-4f51-ac67-8be0fc8aa7d5"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/button13"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Join2ndKeyboard"",
+                    ""groups"": ""NSW Wired"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2fb2615-1c3b-483e-aaf8-5d4d67afddc8"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Join"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -620,7 +650,9 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         m_CharSelection = asset.FindActionMap("CharSelection", throwIfNotFound: true);
         m_CharSelection_Disconnect = m_CharSelection.FindAction("Disconnect", throwIfNotFound: true);
         m_CharSelection_Accept = m_CharSelection.FindAction("Accept", throwIfNotFound: true);
-        m_CharSelection_Join2ndKeyboard = m_CharSelection.FindAction("Join2ndKeyboard", throwIfNotFound: true);
+        // Join
+        m_Join = asset.FindActionMap("Join", throwIfNotFound: true);
+        m_Join_Join = m_Join.FindAction("Join", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -770,14 +802,12 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
     private List<ICharSelectionActions> m_CharSelectionActionsCallbackInterfaces = new List<ICharSelectionActions>();
     private readonly InputAction m_CharSelection_Disconnect;
     private readonly InputAction m_CharSelection_Accept;
-    private readonly InputAction m_CharSelection_Join2ndKeyboard;
     public struct CharSelectionActions
     {
         private @TestControl m_Wrapper;
         public CharSelectionActions(@TestControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Disconnect => m_Wrapper.m_CharSelection_Disconnect;
         public InputAction @Accept => m_Wrapper.m_CharSelection_Accept;
-        public InputAction @Join2ndKeyboard => m_Wrapper.m_CharSelection_Join2ndKeyboard;
         public InputActionMap Get() { return m_Wrapper.m_CharSelection; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -793,9 +823,6 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @Accept.started += instance.OnAccept;
             @Accept.performed += instance.OnAccept;
             @Accept.canceled += instance.OnAccept;
-            @Join2ndKeyboard.started += instance.OnJoin2ndKeyboard;
-            @Join2ndKeyboard.performed += instance.OnJoin2ndKeyboard;
-            @Join2ndKeyboard.canceled += instance.OnJoin2ndKeyboard;
         }
 
         private void UnregisterCallbacks(ICharSelectionActions instance)
@@ -806,9 +833,6 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
             @Accept.started -= instance.OnAccept;
             @Accept.performed -= instance.OnAccept;
             @Accept.canceled -= instance.OnAccept;
-            @Join2ndKeyboard.started -= instance.OnJoin2ndKeyboard;
-            @Join2ndKeyboard.performed -= instance.OnJoin2ndKeyboard;
-            @Join2ndKeyboard.canceled -= instance.OnJoin2ndKeyboard;
         }
 
         public void RemoveCallbacks(ICharSelectionActions instance)
@@ -826,6 +850,52 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
         }
     }
     public CharSelectionActions @CharSelection => new CharSelectionActions(this);
+
+    // Join
+    private readonly InputActionMap m_Join;
+    private List<IJoinActions> m_JoinActionsCallbackInterfaces = new List<IJoinActions>();
+    private readonly InputAction m_Join_Join;
+    public struct JoinActions
+    {
+        private @TestControl m_Wrapper;
+        public JoinActions(@TestControl wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Join => m_Wrapper.m_Join_Join;
+        public InputActionMap Get() { return m_Wrapper.m_Join; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(JoinActions set) { return set.Get(); }
+        public void AddCallbacks(IJoinActions instance)
+        {
+            if (instance == null || m_Wrapper.m_JoinActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_JoinActionsCallbackInterfaces.Add(instance);
+            @Join.started += instance.OnJoin;
+            @Join.performed += instance.OnJoin;
+            @Join.canceled += instance.OnJoin;
+        }
+
+        private void UnregisterCallbacks(IJoinActions instance)
+        {
+            @Join.started -= instance.OnJoin;
+            @Join.performed -= instance.OnJoin;
+            @Join.canceled -= instance.OnJoin;
+        }
+
+        public void RemoveCallbacks(IJoinActions instance)
+        {
+            if (m_Wrapper.m_JoinActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IJoinActions instance)
+        {
+            foreach (var item in m_Wrapper.m_JoinActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_JoinActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public JoinActions @Join => new JoinActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -866,6 +936,9 @@ public partial class @TestControl: IInputActionCollection2, IDisposable
     {
         void OnDisconnect(InputAction.CallbackContext context);
         void OnAccept(InputAction.CallbackContext context);
-        void OnJoin2ndKeyboard(InputAction.CallbackContext context);
+    }
+    public interface IJoinActions
+    {
+        void OnJoin(InputAction.CallbackContext context);
     }
 }
