@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TerminalTextAnimator : MonoBehaviour
@@ -46,8 +47,19 @@ public class TerminalTextAnimator : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(TypeText());
+        //StartCoroutine(TypeText());
        // StartCoroutine(BlinkCursor());
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(TypeText());
+    }
+
+    public void OnDisable()
+    {
+        StopAllCoroutines();
+        textMeshPro.text = "";
     }
 
     IEnumerator TypeText()
